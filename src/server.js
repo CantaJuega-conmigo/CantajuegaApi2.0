@@ -1,9 +1,11 @@
 const express = require('express')
-
 const server = express();
 const cors=require('cors')
 
 const morgan= require('morgan')
+
+require('./DB')
+
 
 server.use(cors({
     origin:['http://localhost:3000','https://cantajuega2-0.vercel.app/'],
