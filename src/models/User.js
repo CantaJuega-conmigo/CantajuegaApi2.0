@@ -27,7 +27,23 @@ module.exports = (sequelize) => {
     },
     phone:{
       type:DataTypes.INTEGER,
+      allowNull:true
+    },
+    email_verified:{
+      type:DataTypes.BOOLEAN,
+      allowNull:true
+    },
+    password:{
+      type:DataTypes.STRING,
       allowNull:false
     },
+    image:{
+      type:DataTypes.STRING,
+      allowNull:true
+    },
+    is_Admin:{
+      type:DataTypes.STRING,
+      allowNull:true
+    }
   });
 };
