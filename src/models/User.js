@@ -4,9 +4,6 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('User', {//
-    Nombre: {
-      type: DataTypes.STRING,//setemos sus propiedades que los tipos de de datos que obtendra ,STRING UUID TEXT etc
-    },
     id:{
       type:DataTypes.UUID,
       allowNull:false,

@@ -1,4 +1,5 @@
-module.exports={
-    getUsers:require('./getUsers'),
-    createUser:require('./createUser')
-}
+module.exports = {
+  getUsers: require("./getUsers"),
+  createUser: require("./createUser"),
+  deleteUser: require("./deleteUser"),
+};
