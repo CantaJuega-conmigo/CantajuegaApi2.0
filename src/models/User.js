@@ -41,6 +41,10 @@ module.exports = (sequelize) => {
     is_Admin:{
       type:DataTypes.STRING,
       allowNull:true
+    },
+    recurrenteId:{
+      type:DataTypes.STRING,
+      allowNull:true
     }
   });
 };
