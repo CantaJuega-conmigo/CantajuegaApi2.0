@@ -1,4 +1,5 @@
 const { User } = require("../../DB");
+const { createToken } = require("../../auth");
 const comparepassword = require("../../utils/comparepassword");
 module.exports = async ({ email, password }) => {
   const existUser = await User.findOne({ where: { email: email } });
@@ -7,9 +8,9 @@ module.exports = async ({ email, password }) => {
   if(!existUser || !isCorrectPassword){
     throw new Error;
   }else{
-
+     const Token= createToken(existUser,'1m')
     return {
-      token:'any',
+      token:Token,
       user:existUser
     }
   }
