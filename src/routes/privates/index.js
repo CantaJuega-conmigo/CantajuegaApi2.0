@@ -8,5 +8,5 @@ router.get('/prueba',validateauth,(req,res)=>{
     res.send('pagina privada')
 })
 router.use('/reports',require('./Reports'))
-
+router.use('/notifications',require('./Notifications'))
 module.exports = router;
