@@ -7,5 +7,6 @@ const router = Router();
 router.get('/prueba',validateauth,(req,res)=>{
     res.send('pagina privada')
 })
+router.use('/reports',require('./Reports'))
 
 module.exports = router;

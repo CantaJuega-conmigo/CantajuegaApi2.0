@@ -8,7 +8,7 @@ module.exports = async ({ email, password }) => {
   if(!existUser || !isCorrectPassword){
     throw new Error;
   }else{
-     const Token= createToken(existUser,'1m')
+     const Token= createToken(existUser,'5m')
     return {
       token:Token,
       user:existUser
