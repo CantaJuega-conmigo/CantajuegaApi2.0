@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const router = Router();
-const {createNewReport,getallReports}=require('../../handlers/ReportHandlers');
+const {createReportHandler,getReportsHandler}=require('../../handlers/ReportHandlers');
 
-router.get('/',getallReports)
-router.post('/',createNewReport)
+router.get('/',getReportsHandler)
+router.post('/',createReportHandler)
 
 
 module.exports=router

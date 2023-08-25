@@ -1,7 +1,7 @@
 const {Router}=require('express');
-const {getAllNotifications}=require('../../handlers/NotificationsHandlers')
+const {getNotificationsHandler}=require('../../handlers/NotificationHandlers')
 
 const router=Router();
 
-router.get('/',getAllNotifications)
+router.get('/',getNotificationsHandler)
 module.exports =router
