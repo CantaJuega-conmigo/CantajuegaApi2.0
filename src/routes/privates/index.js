@@ -9,4 +9,5 @@ router.get('/prueba',validateauth,(req,res)=>{
 })
 router.use('/reports',require('./Reports'))
 router.use('/notifications',require('./Notifications'))
+router.use('/progress',require('./Progress'))
 module.exports = router;

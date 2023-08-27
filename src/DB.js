@@ -30,8 +30,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { User ,Report,Notification } = sequelize.models;
-console.log(User,Report);// si alguno da undefined, revisar el modelo
+const { User ,Report,Notification ,Progress} = sequelize.models;
+console.log(User,Report,Progress);// si alguno da undefined, revisar el modelo
 // Aca vendrian las relaciones
 User.hasMany(Report);//usuario puede tener muchos reportes
 Report.belongsTo(User)//un reporte pertenece solo a un usuario

@@ -28,7 +28,7 @@ module.exports=async(sequelize)=>{
       defaultValue:VideoProgress(),
       allowNull:false
      },
-     third_Video:{
+     Third_Video:{
       type:DataTypes.JSON,
       defaultValue:VideoProgress(),
       allowNull:false
@@ -38,12 +38,12 @@ module.exports=async(sequelize)=>{
       defaultValue:VideoProgress(),
       allowNull:false
      },
-     Fourth_Video:{
+     Fifth_Video:{
       type:DataTypes.JSON,
       defaultValue:lastVideoProgress(),
       allowNull:false
      },
-     Fourth_Video:{
+     Test_Status:{
       type:DataTypes.JSON,
       defaultValue:testDefaultProgress(),
       allowNull:false
