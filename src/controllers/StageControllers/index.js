@@ -1,3 +1,4 @@
 module.exports = {
-  allStage: require("./getStage"),
+  getStage: require("./getStage"),
+  createStage: require("./createStage"),
 };
