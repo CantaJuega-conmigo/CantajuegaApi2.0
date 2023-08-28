@@ -24,6 +24,9 @@ module.exports = (sequelize) => {
       maxAge: {
         type: DataTypes.INTEGER,
       },
+      child: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
+      }
     },
     {
       timestamps: false,

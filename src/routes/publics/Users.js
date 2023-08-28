@@ -1,15 +1,15 @@
 const { Router } = require("express");
 const router = Router();
-const {getallUsers,createNewUser,deleteUsers,editUsers}=require('../../handlers/UserHandlers');
+const {deleteUserHandler,getUsersHandler,registerUserHandler,editUserHandler}=require('../../handlers/UserHandlers');
 const { loginHandler } = require("../../handlers/LoginHandler");
 
-router.get('/',getallUsers)
+router.get('/',getUsersHandler)
 
 router.post('/login',loginHandler)
 
-router.post('/',createNewUser)
+router.post('/register',registerUserHandler)
 
-router.delete('/:id',deleteUsers)
+router.delete('/:id',deleteUserHandler)
 
-router.put('/:id',editUsers)
+router.put('/:id',editUserHandler)
 module.exports=router
