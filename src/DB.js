@@ -47,7 +47,9 @@ const { User, Child, Membership, Stage, Payment } = sequelize.models;
 //  Temperament.belongsToMany(Dog,{through:"dog_temperament"})
 // console.log(User)
 
-//
+// User N a 1 Payment
+User.hasMany(Payment);
+Payment.belongsTo(User);
 
 // User N a 1 Membership
 User.hasMany(Membership);
