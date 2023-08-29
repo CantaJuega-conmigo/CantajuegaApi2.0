@@ -28,6 +28,11 @@ module.exports = (sequelize) => {
       age: {
         type: DataTypes.INTEGER,
       },
+      Stages_Completed: {
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        allowNull: true,
+        defaultValue: null,
+      },
     },
     {
       timestamps: false,
