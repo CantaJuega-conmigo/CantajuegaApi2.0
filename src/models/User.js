@@ -4,48 +4,52 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('User', {//
-    id:{
-      type:DataTypes.UUID,
-      allowNull:false,
-      primaryKey:true,
+    id: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      primaryKey: true,
       defaultValue: DataTypes.UUIDV4
     },
-    firstName:{
-      type:DataTypes.STRING,
-      allowNull:false
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    lastName:{
-      type:DataTypes.STRING,
-      allowNull:false
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    email:{
-      type:DataTypes.STRING,
-      allowNull:false,
-      unique:true
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
-    phone:{
-      type:DataTypes.INTEGER,
-      allowNull:true
+    phone: {
+      type: DataTypes.INTEGER,
+      allowNull: true
     },
-    email_verified:{
-      type:DataTypes.BOOLEAN,
-      allowNull:true
+    email_verified: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     },
-    password:{
-      type:DataTypes.STRING,
-      allowNull:false
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    image:{
-      type:DataTypes.STRING,
-      allowNull:true
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    is_Admin:{
-      type:DataTypes.STRING,
-      allowNull:true
+    is_Admin: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    recurrenteId:{
-      type:DataTypes.STRING,
-      allowNull:true
+    recurrenteId: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
-  });
+  },
+    {
+      timestamps: false,
+    }
+  );
 };

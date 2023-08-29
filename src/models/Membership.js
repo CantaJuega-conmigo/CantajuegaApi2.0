@@ -3,36 +3,36 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Stage",
+    "Membership",
     {
-      //
       id: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
+      price: {
+        type: DataTypes.INTEGER,
+      },
+      description: {
+        type: DataTypes.TEXT,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      description: {
+      text1: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
-      minAge: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
+      text2: {
+        type: DataTypes.STRING,
       },
-      maxAge: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+      text3: {
+        type: DataTypes.STRING,
       },
-      child: {
-        type: DataTypes.ARRAY(DataTypes.JSONB),
-        allowNull: true,
-      },
+      user: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
+      }
     },
     {
       timestamps: false,

@@ -3,35 +3,20 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Stage",
+    "Payment",
     {
-      //
       id: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      name: {
+      status: DataTypes.ENUM("pending", "paid", "canceled", "failed", "expired"),
+      recurrenteId: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
-      description: {
+      checkoutUrl: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      minAge: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-      },
-      maxAge: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
-      child: {
-        type: DataTypes.ARRAY(DataTypes.JSONB),
-        allowNull: true,
       },
     },
     {

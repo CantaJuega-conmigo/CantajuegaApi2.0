@@ -37,14 +37,41 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { User, Report, Notification, Progress, Stage } = sequelize.models;
-console.log(User, Report, Progress); // si alguno da undefined, revisar el modelo
+
+console.log(sequelize.models);
+const { User, Child, Membership, Stage, Payment, Report, Notification,Progress } = sequelize.models;
+
 // Aca vendrian las relaciones
-User.hasMany(Report); //usuario puede tener muchos reportes
-Report.belongsTo(User); //un reporte pertenece solo a un usuario
-Report.hasOne(Notification); //un reporte puede generar solo una notificacion a la vez
-Notification.belongsTo(Report); //una sola notificacion puede tener un solo reporte
-Stage.hasMany();
+// Product.hasMany(Reviews);
+//  Dog.belongsToMany(Temperament,{through:"dog_temperament"} )
+//  Temperament.belongsToMany(Dog,{through:"dog_temperament"})
+// console.log(User)
+
+
+// Aca vendrian las relaciones
+
+// User N a 1 Payment => se crea columna 'userId' en Payment 
+User.hasMany(Payment);
+Payment.belongsTo(User);
+
+// User N a 1 Membership => se crea columna 'userID' en Membership
+Membership.hasMany(User);
+User.belongsTo(Membership);
+
+// Child N a 1 User
+User.hasMany(Child);
+Child.belongsTo(User);
+// Child N a 1 Stage
+Stage.hasMany(Child);
+Child.belongsTo(Stage);
+
+Child.belongsTo(Progress)
+Progress.belongsTo(Child)
+User.hasMany(Report);//usuario puede tener muchos reportes
+Report.belongsTo(User)//un reporte pertenece solo a un usuario
+Report.hasOne(Notification);//un reporte puede generar solo una notificacion a la vez
+Notification.belongsTo(Report)//una sola notificacion puede tener un solo reporte
+
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
