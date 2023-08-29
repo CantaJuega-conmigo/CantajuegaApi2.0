@@ -20,12 +20,12 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     minAge: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.NUMBER,
       allowNull: false,
       unique: true,
     },
     maxAge: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.NUMBER,
       allowNull: true,
     },
     child: {
