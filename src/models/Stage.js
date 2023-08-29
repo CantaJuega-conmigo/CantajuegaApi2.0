@@ -29,10 +29,6 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      child: {
-        type: DataTypes.ARRAY(DataTypes.JSONB),
-        allowNull: true,
-      },
     },
     {
       timestamps: false,
