@@ -1,3 +1,4 @@
 module.exports={
-    createProgressHandler:require('./createProgressHandler')
+    createProgressHandler:require('./createProgressHandler'),
+    getProgressHandler:require('./getProgressHandlers')
 }
