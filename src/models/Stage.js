@@ -5,6 +5,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Stage",
     {
+      //
       id: {
         type: DataTypes.UUID,
         allowNull: false,
@@ -16,25 +17,21 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       description: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       minAge: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        // unique: true,
+        unique: true,
       },
       maxAge: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      child: {
-        type: DataTypes.ARRAY(DataTypes.JSONB),
         allowNull: true,
       },
     },
     {
       timestamps: false,
     }
-  )
-}
+  );
+};
