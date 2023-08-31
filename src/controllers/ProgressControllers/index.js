@@ -1,3 +1,4 @@
 module.exports={
-    createProgress:require('./CreateProgress')
+    createProgress:require('./CreateProgress'),
+    getProgress:require('./getProgress')
 }

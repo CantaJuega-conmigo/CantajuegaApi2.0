@@ -1,11 +1,11 @@
-const { Stage, Child } = require("../../DB");
+const { Child, User, Stage } = require("../../DB");
 
 module.exports = async () => {
   try {
-    const allStage = await Stage.findAll({
-      include: Child,
+    const allChild = await Child.findAll({
+      include: [User, Stage],
     });
-    return allStage;
+    return allChild;
   } catch (error) {
     console.log(error);
     throw new Error("Error in the server get");
