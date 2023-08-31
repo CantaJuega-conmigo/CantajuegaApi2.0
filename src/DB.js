@@ -41,12 +41,6 @@ sequelize.models = Object.fromEntries(capsEntries);
 console.log(sequelize.models);
 const { User, Child, Membership, Stage, Payment, Report, Notification, Progress } = sequelize.models;
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-//  Dog.belongsToMany(Temperament,{through:"dog_temperament"} )
-//  Temperament.belongsToMany(Dog,{through:"dog_temperament"})
-// console.log(User)
-
 
 // Aca vendrian las relaciones
 
@@ -72,12 +66,6 @@ Report.belongsTo(User)//un reporte pertenece solo a un usuario
 Report.hasOne(Notification);//un reporte puede generar solo una notificacion a la vez
 Notification.belongsTo(Report)//una sola notificacion puede tener un solo reporte
 
-console.log(User, Report, Progress); // si alguno da undefined, revisar el modelo
-// Aca vendrian las relaciones
-User.hasMany(Report); //usuario puede tener muchos reportes
-Report.belongsTo(User); //un reporte pertenece solo a un usuario
-Report.hasOne(Notification); //un reporte puede generar solo una notificacion a la vez
-Notification.belongsTo(Report); //una sola notificacion puede tener un solo reporte
 // Stage.hasMany();
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
