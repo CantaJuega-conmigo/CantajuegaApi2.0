@@ -1,4 +1,5 @@
 module.exports = {
     getMembershipHandler: require('./getMembershipHandler'),
-    createMembershipHandlers: require('./createMembershipHandlers')
+    createMembershipHandlers: require('./createMembershipHandlers'),
+    deleteMembershipHandlers: require('./deleteMembershipHandlers')
 }
