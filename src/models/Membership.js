@@ -29,9 +29,6 @@ module.exports = (sequelize) => {
       },
       text3: {
         type: DataTypes.STRING,
-      },
-      user: {
-        type: DataTypes.ARRAY(DataTypes.STRING)
       }
     },
     {
