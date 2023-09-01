@@ -3,6 +3,7 @@ const router = Router();
 const {deleteUserHandler,getUsersHandler,registerUserHandler,editUserHandler}=require('../../handlers/UserHandlers');
 const { loginHandler } = require("../../handlers/LoginHandler");
 
+router.get('/:id',getUsersHandler)
 router.get('/',getUsersHandler)
 
 router.post('/login',loginHandler)

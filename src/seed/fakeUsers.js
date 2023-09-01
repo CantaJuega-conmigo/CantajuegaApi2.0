@@ -1,5 +1,8 @@
+const {v4:uuidv4}=require('uuid')
+
 const userSeed= [
     {
+        id:uuidv4(),
         firstName: 'Juan',
         lastName: 'Perez',
         email: 'Test@gmail.com',
@@ -8,6 +11,7 @@ const userSeed= [
         password: 'Test1234',
     },
     {
+        id:uuidv4(),
         firstName: 'Maria',
         lastName: 'Perez',
         email: 'Test1@gmail.com',
@@ -16,6 +20,7 @@ const userSeed= [
         password: 'Test1234',
     },
     {
+        id:uuidv4(),
         firstName: 'Pedro',
         lastName: 'Perez',
         email: 'Test2@gmail.com',
@@ -23,7 +28,8 @@ const userSeed= [
         emailVerified: false,
         password: 'Test1234',
     },
-    {
+    { 
+        id:uuidv4(),
         firstName: 'joaquin',
         lastName: 'garcia',
         email: 'joakig6@gmail.com',
