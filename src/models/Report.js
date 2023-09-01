@@ -17,11 +17,11 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: false,
     },
-    Date_Created: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      allowNull: false,
-    },
+    // Date_Created: {
+    //   type: DataTypes.DATE,
+    //   defaultValue: DataTypes.NOW,
+    //   allowNull: false,
+    // },
     Response: {
       type: DataTypes.TEXT,
       allowNull: true,
