@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
       },
       price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
       },
       description: {
         type: DataTypes.TEXT,
