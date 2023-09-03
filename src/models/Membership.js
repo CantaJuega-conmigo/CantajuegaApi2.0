@@ -29,6 +29,10 @@ module.exports = (sequelize) => {
       },
       text3: {
         type: DataTypes.STRING,
+      },
+      deleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       }
     },
     {
