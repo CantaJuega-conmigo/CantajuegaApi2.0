@@ -1,9 +1,9 @@
-const { Child, User, Stage } = require("../../DB");
+const { Child, User, Stage ,Progress } = require("../../DB");
 
 module.exports = async () => {
   try {
     const allChild = await Child.findAll({
-      include: [User, Stage],
+      include: [User, Stage,Progress],
     });
     return allChild;
   } catch (error) {
