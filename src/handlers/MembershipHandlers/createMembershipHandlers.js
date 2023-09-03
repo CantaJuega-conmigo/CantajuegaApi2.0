@@ -3,7 +3,7 @@ const { createMembership } = require('../../controllers/MembershipContollers');
 module.exports = async (req, res) => {
     try {
         await createMembership(req.body);
-        console.log('ENTRE HANDLE');
+        // console.log('ENTRE HANDLE');
         res.send({ message: 'Membership created' })
         // return await membership;
     } catch (e) {
