@@ -30,6 +30,10 @@ module.exports = (sequelize) => {
       text3: {
         type: DataTypes.STRING,
       },
+      recurrenteId:{
+        type:DataTypes.STRING,
+        allowNull:false
+      },
       deleted: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
