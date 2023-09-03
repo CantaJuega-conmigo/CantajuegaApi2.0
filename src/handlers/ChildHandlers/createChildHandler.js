@@ -1,15 +1,16 @@
 const { createChild } = require("../../controllers/ChildControllers");
 
 module.exports = async (req, res) => {
-  const { firstName, lastName, gender, birthDate, age } = req.body;
+  // const { firstName, lastName, gender, birthDate, age } = req.body;
 
   try {
     const child = await createChild(
-      firstName,
-      lastName,
-      gender,
-      birthDate,
-      age
+      // firstName,
+      // lastName,
+      // gender,
+      // birthDate,
+      // age
+      req.body
     );
 
     return res.status(201).json(child);
