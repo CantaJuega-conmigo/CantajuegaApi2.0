@@ -4,7 +4,8 @@ module.exports = async (req, res) => {
   const { name, description, minAge, maxAge } = req.body;
 
   try {
-    const stage = await createStage(name, description, minAge, maxAge);
+    // const stage = await createStage(name, description, minAge, maxAge);
+    const stage = await createStage(req.body);
 
     return res.status(201).json(stage);
   } catch (error) {

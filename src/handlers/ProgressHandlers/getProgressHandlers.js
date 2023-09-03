@@ -1,16 +1,15 @@
 const { getProgress } = require("../../controllers/ProgressControllers");
 module.exports = async (req, res) => {
   const { id } = req.params;
-  const { video } = req.query;
-  console.log(video);
+  const { select } = req.query;
   try {
-    if (id && !video) {
+    if (id && !select) {
       const Progress = await getProgress(id);
       res.send(Progress);
-    } else if (video && id) {
+    } else if (select && id) {
       const result = (await getProgress(id)) ?? {};
 
-      res.send(result[video]);
+      res.send(result[select]);
     } else {
       const Progress = await getProgress();
       res.send(Progress);

@@ -60,7 +60,7 @@ Stage.hasMany(Child);
 Child.belongsTo(Stage);
 
 Child.belongsTo(Progress)
-Progress.belongsTo(Child)
+Progress.hasOne(Child)
 User.hasMany(Report);//usuario puede tener muchos reportes
 Report.belongsTo(User)//un reporte pertenece solo a un usuario
 Report.hasOne(Notification);//un reporte puede generar solo una notificacion a la vez

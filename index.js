@@ -7,4 +7,4 @@ conn.sync({ force: true }).then(() => {
       console.log(`server open on port ${PORT}`); // eslint-disable-line no-console
     });
   });
-  
+   
