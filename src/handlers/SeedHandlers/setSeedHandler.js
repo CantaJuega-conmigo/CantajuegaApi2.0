@@ -1,5 +1,5 @@
 const {setSeed}=require('../../controllers/SeedControllers')
 module.exports=async (req,res)=>{
-  setSeed()
-  res.send('seed')
+  const seed=await setSeed()
+  res.send(seed)
 }
