@@ -45,7 +45,7 @@ module.exports = async (sequelize) => {
         defaultValue: VideoProgress(),
         allowNull: false,
       },
-      Fifth_Video: {
+      Final_Video: {
         type: DataTypes.JSON,
         defaultValue: lastVideoProgress(),
         allowNull: false,
@@ -55,6 +55,10 @@ module.exports = async (sequelize) => {
         defaultValue: testDefaultProgress(),
         allowNull: false,
       },
+      isAproved:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:false
+      }
     },
     {
       timestamps: true,
