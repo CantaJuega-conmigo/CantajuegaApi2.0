@@ -1,3 +1,4 @@
 module.exports={
-    validateauth:require( './validateauth')
+    validateauth:require( './validateauth'),
+    validateUpdateProgress:require('./validateEditProgress')
 }

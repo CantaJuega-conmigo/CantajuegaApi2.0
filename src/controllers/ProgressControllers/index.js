@@ -1,5 +1,6 @@
 module.exports = {
   createProgress: require("./CreateProgress"),
   getProgress: require("./getProgress"),
-  updateProgress: require("./UpdateProgress"),
+  updateProgressVideos: require("./UpdateProgressVideos"),
+  updateProgress: require("./updateProgress"),
 };
