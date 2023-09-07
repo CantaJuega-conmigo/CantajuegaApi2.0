@@ -1,8 +1,7 @@
 const { Progress } = require("../../DB");
-const getObjectAtributtes = require("../../utils/getObjectAtributtes");
-const { completePdf } = require("../../utils/progressControls");
+const {getObjectAtributtes} = require("../../utils");
 const { getUsers } = require("../UserControllers");
-
+const {CompletedPdf}=require('../../helpers/ProgressHelpers')
 module.exports = async (id, newData) => {
   try {
     const progress = await Progress.findByPk(id);
@@ -16,8 +15,8 @@ module.exports = async (id, newData) => {
     }
 
     const Atributte=getObjectAtributtes(newData)[0];//actual atributo a modificar
-    const Progressatributtes=getObjectAtributtes(progress.dataValues);//atributos del modelo en general
-    const correctIndex=Progressatributtes.indexOf(Atributte)//indice del actual atributo en el array 
+    // const Progressatributtes=getObjectAtributtes(progress.dataValues);//atributos del modelo en general
+    // const correctIndex=Progressatributtes.indexOf(Atributte)//indice del actual atributo en el array 
 
     const UpdateResults = await Progress.update(newData, {
       where: {
@@ -29,7 +28,7 @@ module.exports = async (id, newData) => {
 
 
     if(Atributte==="Pdf_Viewed"){
-       const pdfCompleted=await completePdf(updatedProgress,Progress,id)
+       const pdfCompleted=await CompletedPdf(updatedProgress,Progress,id)
        return pdfCompleted
     }
   

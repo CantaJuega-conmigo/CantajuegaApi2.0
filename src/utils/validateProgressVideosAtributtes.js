@@ -8,26 +8,26 @@ module.exports = (newData, select) => {
     // if(!newData.PdfCompleted){//solo permitiremos la edicion , si el dato necesario ya fue visto
     //   throw new Error('Por favor abra el pdf')
     // }
-    validateVideosProgress(newData, First_Video,'videosAtributtes'); //devuelve true o false
+    validateVideosProgress(newData, First_Video,'videosAtributtes',select); //devuelve true o false
     return true;
   }
   if (select === "Final_Video") {
-    validateVideosProgress(newData, Final_Video,'videosAtributtes');
+    validateVideosProgress(newData, Final_Video,'videosAtributtes',select);
     if (!newData.Last_Video_Completed) {
       //solo permitiremos la edicion , si el dato necesario ya fue visto
       throw new Error(
-        "No se puede actualizar el progreso hasta que se vea el video anterior."
+        "No es posible cambiar el atributo Last_Video_Completed."
       );
     }
 
     return true;
   }
   if (select !== "First_Video") {
-    validateVideosProgress(newData, Other_Videos,'videosAtributtes');
+    validateVideosProgress(newData, Other_Videos,'videosAtributtes',select);
     if (!newData.Last_Video_Completed) {
       //solo permitiremos la edicion , si el dato necesario ya fue visto
       throw new Error(
-        "No se puede actualizar el progreso hasta que se vea el video anterior."
+        "No es posible cambiar el atributo Last_Video_Completed."
       );
     }
  

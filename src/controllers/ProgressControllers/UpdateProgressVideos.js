@@ -1,6 +1,8 @@
 const { Progress } = require("../../DB");
-const { allowFirstVideo ,allowOtherVideos,completeVideo} = require("../../utils/progressControls");
-const {getUsers}=require('../UserControllers')
+// const { AllowFirstVideo ,AllowOtherVideos} = require("../../utils/progressControls");
+const {getUsers}=require('../UserControllers');
+const {CompleteVideos,AllowFirstVideo,AllowOtherVideos}=require('../../helpers/ProgressHelpers')
+
 module.exports = async (id, newData, select) => {
   try {
     const ActualProgress = await Progress.findByPk(id);
@@ -10,13 +12,22 @@ module.exports = async (id, newData, select) => {
       throw new Error('Child not exists.')
     }
     if(select==='First_Video'){
-      allowFirstVideo(ActualProgress.dataValues,newData)
+      AllowFirstVideo(ActualProgress.dataValues,newData)
+      const allowNextVideo=await CompleteVideos(ActualProgress,newData,select,id,Progress)
+      return allowNextVideo
     }
-    if(select !=='First_Video' && select!=='Last_Video'){
-      allowOtherVideos(ActualProgress,select)
+
+    // if(select==='Final_Video'){
+    //   AllowOtherVideos(ActualProgress,select)
+    //   const allowNextVideo=await completeVideo(ActualProgress,newData,select,id,Progress)
+    //   return allowNextVideo
+    // }
+
+    if(select !=='First_Video'){
+      AllowOtherVideos(ActualProgress,select)
+      const allowNextVideo=await CompleteVideos(ActualProgress,newData,select,id,Progress)
+      return allowNextVideo
     }
-    const allowNextVideo=await completeVideo(ActualProgress,newData,select,id,Progress)
-    return allowNextVideo
   } catch (error) {
     throw error
   }

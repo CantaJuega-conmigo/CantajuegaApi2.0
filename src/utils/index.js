@@ -4,4 +4,5 @@ module.exports = {
   sendEmailLogin: require('./nodemailer'),
   validateProgressVideosAtributtes: require('./validateProgressVideosAtributtes'),
   validateProgressAtributtes: require('./validateProgressAtributtes'),
+  getObjectAtributtes:require('./getObjectAtributtes')
 };
