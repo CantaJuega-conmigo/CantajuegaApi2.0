@@ -1,7 +1,7 @@
 module.exports=(Progress, newData) => {
     //para prohibir que se pueda modificar el estado de visto del pdf y controlar que el primer video sea visto solo el si el pdf fue abierto.
   
-    if (!newData.PdfCompleted) {
+    if (!newData.PdfCompleted) {//medida adicional ya que en esto tambien se valida en el middleware
       //newData representa a la info que viene por body, si quieren volver a ponerlo en false tirara un error.
       throw new Error("No es posible actualizar la propiedad");
     }
