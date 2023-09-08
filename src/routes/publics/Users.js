@@ -2,14 +2,14 @@ const { Router } = require("express");
 const router = Router();
 const { deleteUserHandler, getUsersHandler, registerUserHandler, editUserHandler, logicalDeletionUserHandler } = require('../../handlers/UserHandlers');
 const { loginHandler } = require("../../handlers/LoginHandler");
-const { validateRegister } = require("../../middlewares");
-
+const { validateRegister ,validateLogin} = require("../../middlewares");
+const {loginValidators,registerValidators}=require('../../validators')
 router.get('/:id', getUsersHandler)
 router.get('/', getUsersHandler)
 
-router.post('/login', loginHandler)
+router.post('/login',loginValidators,validateLogin,loginHandler)
 
-router.post('/register',validateRegister,registerUserHandler)
+router.post('/register',registerValidators,validateRegister,registerUserHandler)
 
 router.delete('/:id', deleteUserHandler)
 
