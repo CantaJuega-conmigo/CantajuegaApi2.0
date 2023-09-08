@@ -1,8 +1,25 @@
 const { User } = require("../../DB");
 
 module.exports = async (id) => {
-  const allUsers = !id
-    ? await User.findAll({ include: ["Children", 'Membership'] })
-    : await User.findByPk(id, { include: ["Children", 'Membership'] });
-  return allUsers;
+  try {
+    const allUsers = !id
+      ? await User.findAll({
+          include: ["Children", "Membership"],
+          attributes: {
+            exclude: ["password"],
+          },
+        })
+      : await User.findByPk(id, {
+          include: ["Children", "Membership"],
+          attributes: {
+            exclude: ["password"],
+          },
+        });
+    if (!id && !allUsers.length) {
+      throw new Error("User not found.");
+    }
+    return allUsers;
+  } catch (error) {
+    throw error;
+  }
 };

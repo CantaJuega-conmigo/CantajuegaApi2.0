@@ -1,4 +1,5 @@
 module.exports = {
   createToken: require("./jswttoken"),
-  validateToken:require('./validatetoken')
+  validateToken:require('./validatetoken'),
+  validateAuthUser:require('./validateAuthUser')
 };

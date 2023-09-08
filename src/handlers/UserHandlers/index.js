@@ -3,5 +3,6 @@ module.exports = {
     getUsersHandler: require('./getUsersHandler'),
     editUserHandler: require('./editUserHandler'),
     registerUserHandler: require('./registerUserHandler'),
-    logicalDeletionUserHandler: require('./logicalDeletionUserHandler')
+    logicalDeletionUserHandler: require('./logicalDeletionUserHandler'),
+    authUserHandler:require('./authUserHandler')
 }
