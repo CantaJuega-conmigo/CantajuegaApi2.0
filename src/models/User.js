@@ -39,6 +39,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true
     },
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     is_Admin: {
       type: DataTypes.STRING,
       allowNull: true
