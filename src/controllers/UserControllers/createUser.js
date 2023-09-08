@@ -21,10 +21,10 @@ module.exports = async ({
       is_Admin,
       MembershipId,
     });
-    const UserAuth=createToken(UserCreated,'1d')
+    // const UserAuth=createToken(UserCreated,'1d')
     return {
-      token: Token,
-      user: existUser
+      token:'Token',
+      user: UserCreated
     }
   } catch (error) {
     throw error;
