@@ -1,4 +1,5 @@
-const { logicalDeletionUser } = require("../../controllers/UserControllers/logicalDeletionUser");
+// const { logicalDeletionUser } = require("../../controllers/UserControllers/logicalDeletionUser");
+const { logicalDeletionUser } = require("../../controllers/UserControllers");
 
 module.exports = async (req, res) => {
     const { id } = req.params;
