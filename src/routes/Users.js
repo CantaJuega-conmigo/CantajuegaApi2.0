@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const router = Router();
-const { deleteUserHandler, getUsersHandler, registerUserHandler, editUserHandler, logicalDeletionUserHandler ,authUserHandler} = require('../../handlers/UserHandlers');
-const { loginHandler } = require("../../handlers/LoginHandler");
-const { validateRegister ,validateLogin} = require("../../middlewares");
-const {loginValidators,registerValidators}=require('../../validators')
+const { deleteUserHandler, getUsersHandler, registerUserHandler, editUserHandler, logicalDeletionUserHandler ,authUserHandler} = require('../handlers/UserHandlers');
+const { loginHandler } = require("../handlers/LoginHandler");
+const { validateRegister ,validateLogin} = require("../middlewares");
+const {loginValidators,registerValidators}=require('../validators')
 router.get('/auth',authUserHandler)
 router.get('/:id', getUsersHandler)
 router.get('/', getUsersHandler)

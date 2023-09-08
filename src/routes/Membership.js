@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getMembershipHandler, createMembershipHandlers, deleteMembershipHandlers, logicalDeletionHandlers } = require('../../handlers/MembershipHandlers');
+const { getMembershipHandler, createMembershipHandlers, deleteMembershipHandlers, logicalDeletionHandlers } = require('../handlers/MembershipHandlers');
 
 // GET
 router.get('/', getMembershipHandler);

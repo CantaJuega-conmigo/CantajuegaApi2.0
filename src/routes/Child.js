@@ -5,7 +5,7 @@ const {
   createChildHandler,
   deleteChildHandler,
   putChildHandler,
-} = require("../../handlers/ChildHandlers");
+} = require("../handlers/ChildHandlers");
 
 const router = Router();
 

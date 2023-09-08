@@ -44,8 +44,9 @@ module.exports = (sequelize) => {
       defaultValue: false
     },
     is_Admin: {
-      type: DataTypes.STRING,
-      allowNull: true
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue:false
     },
     recurrenteId: {
       type: DataTypes.STRING,

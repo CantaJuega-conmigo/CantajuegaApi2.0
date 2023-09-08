@@ -5,7 +5,7 @@ const {
   createStageHandler,
   deleteStageHandler,
   putStageHandler,
-} = require("../../handlers/StageHandlers");
+} = require("../handlers/StageHandlers");
 
 const router = Router();
 

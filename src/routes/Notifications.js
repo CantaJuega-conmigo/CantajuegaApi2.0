@@ -1,5 +1,5 @@
 const {Router}=require('express');
-const {getNotificationsHandler}=require('../../handlers/NotificationHandlers')
+const {getNotificationsHandler}=require('../handlers/NotificationHandlers')
 
 const router=Router();
 

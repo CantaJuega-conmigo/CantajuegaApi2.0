@@ -15,9 +15,7 @@ module.exports = async (id) => {
             exclude: ["password"],
           },
         });
-    if (!id && !allUsers.length) {
-      throw new Error("User not found.");
-    }
+    
     return allUsers;
   } catch (error) {
     throw error;
