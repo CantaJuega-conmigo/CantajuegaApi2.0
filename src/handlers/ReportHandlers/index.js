@@ -1,4 +1,5 @@
 module.exports={
     createReportHandler:require('./createReportHandler'),
-    getReportsHandler:require('./getReportsHandler')
+    getReportsHandler:require('./getReportsHandler'),
+    deleteReportHandler:require('./deleteReportHandler'),
 }

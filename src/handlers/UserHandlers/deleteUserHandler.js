@@ -5,6 +5,9 @@ module.exports = async (req, res) => {
     const deleting = await deleteUser(id);
     res.send("user deleted");
   } catch (error) {
-    res.status(404).send("error");
+    res.status(404).send({
+      error:true,
+      message:error.message??'Error in server.'
+    });
   }
 };

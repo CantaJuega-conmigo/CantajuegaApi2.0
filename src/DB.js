@@ -39,12 +39,20 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 
 console.log(sequelize.models);
-const { User, Child, Membership, Stage, Payment, Report, Notification, Progress } = sequelize.models;
-
+const {
+  User,
+  Child,
+  Membership,
+  Stage,
+  Payment,
+  Report,
+  Notification,
+  Progress,
+} = sequelize.models;
 
 // Aca vendrian las relaciones
 
-// User N a 1 Payment => se crea columna 'userId' en Payment 
+// User N a 1 Payment => se crea columna 'userId' en Payment
 User.hasMany(Payment);
 Payment.belongsTo(User);
 
@@ -53,18 +61,18 @@ Membership.hasMany(User);
 User.belongsTo(Membership);
 
 // Child N a 1 User
-User.hasMany(Child);
+User.hasMany(Child,{onDelete:'CASCADE'});
 Child.belongsTo(User);
 // Child N a 1 Stage
 Stage.hasMany(Child);
 Child.belongsTo(Stage);
 
-Child.belongsTo(Progress)
-Progress.hasOne(Child)
-User.hasMany(Report);//usuario puede tener muchos reportes
-Report.belongsTo(User)//un reporte pertenece solo a un usuario
-Report.hasOne(Notification);//un reporte puede generar solo una notificacion a la vez
-Notification.belongsTo(Report)//una sola notificacion puede tener un solo reporte
+Child.belongsTo(Progress);
+Progress.hasOne(Child);
+User.hasMany(Report,{onDelete:'CASCADE'}); //usuario puede tener muchos reportes
+Report.belongsTo(User); //un reporte pertenece solo a un usuario
+Report.hasOne(Notification, { onDelete: "CASCADE" }); //un reporte puede generar solo una notificacion a la vez//CASCADE hara que al borrarse el reporte, se borre la notificacion a la que pertenece
+Notification.belongsTo(Report); //una sola notificacion puede tener un solo reporte
 
 // Stage.hasMany();
 module.exports = {
