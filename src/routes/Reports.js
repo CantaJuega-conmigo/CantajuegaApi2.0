@@ -1,12 +1,16 @@
 const { Router } = require("express");
 const router = Router();
-const {createReportHandler,getReportsHandler,deleteReportHandler}=require('../handlers/ReportHandlers');
+const {
+  createReportHandler,
+  getReportsHandler,
+  deleteReportHandler,
+  editReportHandler,
+} = require("../handlers/ReportHandlers");
+const { validateAdmin } = require("../middlewares");
+router.get("/", getReportsHandler);
+router.post("/", createReportHandler);
+router.delete("/:id", validateAdmin,deleteReportHandler);
+router.get("/:id", getReportsHandler);
+router.put("/:id", editReportHandler);
 
-router.get('/',getReportsHandler)
-router.post('/',createReportHandler)
-router.delete('/:id',deleteReportHandler)
-router.get('/:id',getReportsHandler)
-
-
-
-module.exports=router
+module.exports = router;

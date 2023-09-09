@@ -16,7 +16,7 @@ router.use('/membership', require('./Membership'));
 router.get("/prueba", validateauth, (req, res) => {
   res.send("pagina privada");
 });
-router.use("/reports", require("./Reports"));
+router.use("/reports",validateauth, require("./Reports"));
 router.use("/notifications", require("./Notifications"));
 router.use("/progress", require("./Progress"));
 router.use("/child", require("./Child"));

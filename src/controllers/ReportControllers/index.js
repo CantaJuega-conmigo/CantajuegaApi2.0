@@ -3,4 +3,5 @@ module.exports={
  getAllReports:require('./getAllReports'),
  getReport:require('./getReport'),
  deleteReport:require('./deleteReport'),
+ editReport:require('./editReport'),
 }

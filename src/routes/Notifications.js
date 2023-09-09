@@ -6,7 +6,7 @@ const { getNotificationsHandler,deleteNotificationHandler } = require("../handle
 
 const router = Router();
 
-router.get("/",  getNotificationsHandler);
+router.get("/", validateauth, validateAdmin ,getNotificationsHandler);
 router.get("/:id",  getNotificationsHandler);
 router.delete('/:id',deleteNotificationHandler)
 module.exports = router;
