@@ -1,3 +1,4 @@
 module.exports={
-    getNotificationsHandler:require('./getNotificationHandler')
+    getNotificationsHandler:require('./getNotificationHandler'),
+    deleteNotificationHandler:require('./deleteNotificationHandler'),
 }

@@ -36,7 +36,7 @@ router.post(
   registerUserHandler
 );
 
-router.delete("/:id", deleteUserHandler);
+router.delete("/:id", validateauth, validateAdmin,deleteUserHandler);
 
 router.patch("/:id", logicalDeletionUserHandler);
 

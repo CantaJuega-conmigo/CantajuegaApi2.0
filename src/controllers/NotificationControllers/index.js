@@ -2,5 +2,6 @@ module.exports={
     createNotification:require('./createNotification'),
     deleteNotification:require('./deleteNotification'),
     editNotification:require('./editNotification'),
-    getNotification:require('./getNotification')
+    getNotification:require('./getNotification'),
+    getNotificationById:require('./getNotificationById')
 }

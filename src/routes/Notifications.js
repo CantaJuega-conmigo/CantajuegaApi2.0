@@ -1,7 +1,12 @@
-const {Router}=require('express');
-const {getNotificationsHandler}=require('../handlers/NotificationHandlers')
+const { Router } = require("express");
+///middlewares
+const { validateauth, validateAdmin } = require("../middlewares");
 
-const router=Router();
+const { getNotificationsHandler,deleteNotificationHandler } = require("../handlers/NotificationHandlers");
 
-router.get('/',getNotificationsHandler)
-module.exports =router
+const router = Router();
+
+router.get("/",  getNotificationsHandler);
+router.get("/:id",  getNotificationsHandler);
+router.delete('/:id',deleteNotificationHandler)
+module.exports = router;
