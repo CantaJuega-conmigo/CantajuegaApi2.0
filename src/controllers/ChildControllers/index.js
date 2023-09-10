@@ -3,4 +3,5 @@ module.exports = {
   deleteChild: require("./deleteChild"),
   createChild: require("./createChild"),
   putChild: require("./putChild"),
+  getChildById: require("./getChildbyId"),
 };
