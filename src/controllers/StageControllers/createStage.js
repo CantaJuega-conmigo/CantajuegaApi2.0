@@ -1,6 +1,6 @@
 const { Stage } = require("../../DB");
 
-module.exports = async ({id,name, description, minAge, maxAge,UserId}) => {
+module.exports = async ({id,name, description, minAge, maxAge,UserId,content}) => {
   try {
     const create = await Stage.create({
       id,
@@ -8,7 +8,8 @@ module.exports = async ({id,name, description, minAge, maxAge,UserId}) => {
       description,
       minAge,
       maxAge,
-      UserId
+      UserId,
+      content
     });
     return create;
   } catch (error) {

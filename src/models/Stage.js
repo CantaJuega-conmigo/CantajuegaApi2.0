@@ -29,6 +29,10 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+      content:{
+        type:DataTypes.JSON(DataTypes.ARRAY(DataTypes.JSON)),
+        allowNull:true
+      }
     },
     {
       timestamps: false,
