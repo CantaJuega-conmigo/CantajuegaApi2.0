@@ -8,7 +8,7 @@ require("./DB");
 
 server.use(
   cors({
-    origin: ["http://localhost:3000", "https://cantajuega2-0.vercel.app/"],
+    origin: ["http://localhost:3000", "https://cantajuega2-0.vercel.app"],
     methods: ["OPTIONS", "GET", "POST", "PUT", "DELETE","PATCH"],
   })
 );
