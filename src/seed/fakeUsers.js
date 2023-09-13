@@ -30,9 +30,9 @@ const userSeed= [
     },
     { 
         id:uuidv4(),
-        firstName: 'joaquin',
-        lastName: 'garcia',
-        email: 'joakig6@gmail.com',
+        firstName: 'Kathy',
+        lastName: 'stalling',
+        email: 'stallingkatt@gmail.com',
         phone: '1234567892',
         emailVerified: false,
         password: 'Test1234',
