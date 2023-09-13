@@ -1,8 +1,8 @@
 const { validateToken } = require("../auth");
 const { verifyIsAdmin } = require("../helpers/AuthHelpers");
-module.exports = (req, res, next) => {
+module.exports = async(req, res, next) => {
   try {
-    const isAdmin = verifyIsAdmin(req);
+    const isAdmin =await verifyIsAdmin(req);
     if (!isAdmin) throw new Error("Acces deneged.");
     next();
   } catch (error) {

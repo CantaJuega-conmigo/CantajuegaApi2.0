@@ -1,8 +1,16 @@
-const { validateToken } = require(".");
+const validateToken = require("./validatetoken");
+module.exports = async (req) => {
+  const { accesscookie } = req.cookies;
+  console.log('en validate cookie',accesscookie);
+  const isCookieExists = accesscookie ? true : false;
+  const CookieContentIsValide = validateToken(accesscookie);
 
-module.exports=(req)=>{
-    const tokenfromcookie=req.cookies.accesscookie;
-    console.log(tokenfromcookie)
-    const istokenvalide=validateToken(tokenfromcookie);
-    console.log(istokenvalide)
-}
+  if (isCookieExists && CookieContentIsValide) {
+    return CookieContentIsValide;
+  } else {
+    return {
+      error: true,
+      auth: false,
+    };
+  }
+};

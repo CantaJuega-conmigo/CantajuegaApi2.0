@@ -24,7 +24,7 @@ const {
 const { loginValidators, registerValidators } = require("../validators");
 
 ///routes
-router.get("/auth", authUserHandler);
+router.get("/auth", validateauth,authUserHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
 router.post("/login", loginValidators, validateLogin, loginHandler);

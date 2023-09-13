@@ -1,14 +1,18 @@
-const { validateToken } = require("../../auth");
-module.exports = (req) => {
-  const token = req.headers["x-access-token"] || req.headers["authorization"];
-  const validateresult = validateToken(token);
-  const isTokenExists = token && token !== "Bearer";
-  const isUserAdmin = validateresult.decoded.user.is_Admin;
-  if (validateresult.error || !isTokenExists) {
-    return false
+const { validateCookie } = require("../../auth");
+module.exports = async (req) => {
+  try {
+    const token = req.cookies.accesscookie;
+    const validateresult = await validateCookie(req);
+    const isTokenExists = token ? true : false;
+    const isUserAdmin = validateresult.decoded?.user.is_Admin;
+    if (validateresult.error || !isTokenExists || !validateresult.auth) {
+      throw new Error('Only Admin can access here.')
+    }
+    if (!isUserAdmin) {
+      throw new Error('Only Admin can access here.')
+    }
+    return isUserAdmin;
+  } catch (error) {
+    throw error;
   }
-  if (!isUserAdmin) {
-   return false
-  }
-  return isUserAdmin
 };

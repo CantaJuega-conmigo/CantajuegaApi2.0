@@ -1,7 +1,7 @@
 const jswt = require("jsonwebtoken");
 const secret = "SECRETO";
 module.exports = (tokenvalue) => {
-  const token = tokenvalue?.slice(7, tokenvalue.length);
+  const token = tokenvalue;
   if (!token) {
     return {
       error: true,
@@ -12,7 +12,7 @@ module.exports = (tokenvalue) => {
   if (token) {
     return jswt.verify(token, secret, (error, decoded) => {
       if (error) {
-        return {
+        return { 
           error: true,
           auth:false,
 

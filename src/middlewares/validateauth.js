@@ -1,16 +1,13 @@
-const { validateToken } = require("../auth");
-module.exports = (req, res, next) => {
+const { validateToken, validateCookie } = require("../auth");
+module.exports = async (req, res, next) => {
   try {
-    const token = req.headers["x-access-token"] || req.headers["authorization"];
-    const validateresult = validateToken(token);
-    const isTokenExists = token && token === "Bearer";
+    
+    const iscookievalide = await validateCookie(req);
 
-    if (validateresult.error && isTokenExists) {
+    if (iscookievalide.error || !iscookievalide.auth) {
       throw new Error("Page not found,auth required");
     }
-    if (validateresult.error && !validateresult.auth) {
-      throw new Error("Access deneged, auth failed.");
-    }
+
     next();
   } catch (error) {
     res.status(401).send({
