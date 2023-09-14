@@ -13,7 +13,11 @@ server.use(
   })
 );
 server.use(cookieParser())
-server.get('/api/cookie',(req,res)=>{
+server.get('/api/cookie',async(req,res)=>{
+  res.cookie("hola",'valor')
+  res.cookie("hola0",'valor',{
+    maxAge:1000000,
+  })
   res.cookie("hola1",'valor',{
     maxAge:1000000,
     sameSite:'lax',
