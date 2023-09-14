@@ -88,6 +88,40 @@ server.get('/api/cookie',async(req,res)=>{
     httpOnly:true,
     domain:FRONT_DOMAIN
   })
+  res.cookie("holcdccda7",'valor',{
+    maxAge:1000000,
+    sameSite:'none'
+  })
+  res.cookie("hola8cddc",'valor',{
+    maxAge:1000000,
+    sameSite:'none',
+    secure:true
+  })
+  res.cookie("hola9cddc",'valor',{
+    maxAge:1000000,
+    sameSite:'none',
+    secure:false
+  })
+  res.cookie("hocddcla10",'valor',{
+    maxAge:1000000,
+    sameSite:'none',
+    secure:true,
+    httpOnly:true
+  })
+  res.cookie("cd",'valor',{
+    maxAge:1000000,
+    sameSite:'none',
+    secure:true,
+    httpOnly:false,
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("cddcd",'valor',{
+    maxAge:1000000,
+    sameSite:'none',
+    secure:false,
+    httpOnly:true,
+    domain:FRONT_DOMAIN
+  })
  
  
 
