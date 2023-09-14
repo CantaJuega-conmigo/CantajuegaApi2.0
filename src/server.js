@@ -3,7 +3,7 @@ const server = express();
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
-
+const {FRONT_DOMAIN} = process.env;
 require("./DB");
 server.use(
   cors({
@@ -13,12 +13,82 @@ server.use(
   })
 );
 server.use(cookieParser())
-// server.get('/cookie',(req,res)=>{
-//   res.cookie("hola",'valor',{
-//     maxAge:100000
-//   })
-//   res.send('cookie')
-// })
+server.get('/api/cookie',(req,res)=>{
+  res.cookie("hola1",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("hola2",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    secure:true,
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("hola3",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    secure:false,
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("hola4",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    secure:true,
+    httpOnly:true
+  })
+  res.cookie("hola5",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    secure:true,
+    httpOnly:false,
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("hola6",'valor',{
+    maxAge:1000000,
+    sameSite:'lax',
+    secure:false,
+    httpOnly:true
+  })
+  res.cookie("hola7",'valor',{
+    maxAge:1000000,
+    sameSite:'strict'
+  })
+  res.cookie("hola8",'valor',{
+    maxAge:1000000,
+    sameSite:'strict',
+    secure:true
+  })
+  res.cookie("hola9",'valor',{
+    maxAge:1000000,
+    sameSite:'strict',
+    secure:false
+  })
+  res.cookie("hola10",'valor',{
+    maxAge:1000000,
+    sameSite:'strict',
+    secure:true,
+    httpOnly:true
+  })
+  res.cookie("hola11",'valor',{
+    maxAge:1000000,
+    sameSite:'strict',
+    secure:true,
+    httpOnly:false,
+    domain:FRONT_DOMAIN
+  })
+  res.cookie("hola12",'valor',{
+    maxAge:1000000,
+    sameSite:'strict',
+    secure:false,
+    httpOnly:true,
+    domain:FRONT_DOMAIN
+  })
+ 
+ 
+
+  res.send('cookie')
+})
 // server.get('/vercookie',(req,res)=>{
 //   console.log(req.cookies.accesscookie);
 //   res.send('ver coookie')
