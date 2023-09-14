@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     
     res.cookie("accesscookie", token, {
       maxAge:24 * 60 * 60 * 1000,
-      sameSite:'lax',
+      sameSite:'none',
       secure:true,
       httpOnly:true,
       domain:FRONT_DOMAIN,
