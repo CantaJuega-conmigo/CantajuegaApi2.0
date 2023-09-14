@@ -22,13 +22,14 @@ const {
 ///validators
 
 const { loginValidators, registerValidators } = require("../validators");
+const { logoutHandler } = require("../handlers/LogOutHandler")
 
 ///routes
 router.get("/auth", validateauth,authUserHandler);
+router.get('/logout',logoutHandler)
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
 router.post("/login", loginValidators, validateLogin, loginHandler);
-
 router.post(
   "/register",
   registerValidators,
