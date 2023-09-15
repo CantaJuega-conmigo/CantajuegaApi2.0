@@ -4,9 +4,10 @@ module.exports=async(req,res)=>{
     const isUserAuth=await validateAuthUser(req)
     res.send(isUserAuth)
   } catch (error) {
-     res.status(401).send({
+    res.clearCookie('accesscookie')
+    res.status(401).send({
       error:true,
       message:'Auth failed.Access deneged.'
      })    
   }
-}
+} 
