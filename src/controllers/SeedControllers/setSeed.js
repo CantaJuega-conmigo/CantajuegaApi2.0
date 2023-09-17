@@ -10,12 +10,16 @@ module.exports = async () => {
    const validateSeed=await getUsers()
    if(!validateSeed.length){
 
+     for (let i = 0; i < fakeMemberships.length; i++) {
+       await createMembership(fakeMemberships[i])
+     }
+     console.log(fakeUsers.length)
+    const memberships=[].concat(fakeMemberships).concat(fakeMemberships)
      for (let i = 0; i < fakeUsers.length; i++) {
    
        const newProgress=await createProgress()
        const report=`hola soy ${fakeUsers[i].firstName} y quiero reportar que tengo un problema en...`
-       await createMembership(fakeMemberships[i])
-       fakeUsers[i].MembershipId=fakeMemberships[i].id
+       fakeUsers[i].MembershipId=memberships[i].id
        await createUser(fakeUsers[i]);
        fakeChilds[i].UserId=fakeUsers[i].id
        await createStage(fakeStages[i])

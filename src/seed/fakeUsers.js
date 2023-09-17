@@ -37,6 +37,42 @@ const userSeed= [
         emailVerified: false,
         password: 'Test1234',
     },
+    { 
+        id:uuidv4(),
+        firstName: 'Joaquin',
+        lastName: 'Garcia',
+        email: 'joakig6@gmail.com',
+        phone: '1234567892',
+        emailVerified: false,
+        password: 'Test1234',
+    },
+    { 
+        id:uuidv4(),
+        firstName: 'Usuario6',
+        lastName: 'hola',
+        email: 'usuario6@gmail.com',
+        phone: '1234567892',
+        emailVerified: false,
+        password: 'Test1234',
+    },
+    { 
+        id:uuidv4(),
+        firstName: 'Usuario7',
+        lastName: 'Garcia',
+        email: 'usuario7@gmail.com',
+        phone: '1234567892',
+        emailVerified: false,
+        password: 'Test1234',
+    },
+    { 
+        id:uuidv4(),
+        firstName: 'Usuario8',
+        lastName: 'Garcia',
+        email: 'usuario8@gmail.com',
+        phone: '1234567892',
+        emailVerified: false,
+        password: 'Test1234',
+    },
 ]
 
 module.exports=userSeed
