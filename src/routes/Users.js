@@ -8,6 +8,7 @@ const {
   editUserHandler,
   logicalDeletionUserHandler,
   authUserHandler,
+  changeUserPasswordHandler,
 } = require("../handlers/UserHandlers");
 
 const { loginHandler } = require("../handlers/LoginHandler");
@@ -17,16 +18,18 @@ const {
   validateLogin,
   validateauth,
   validateAdmin,
+  validateChangePassword,
 } = require("../middlewares");
 
 ///validators
 
-const { loginValidators, registerValidators } = require("../validators");
-const { logoutHandler } = require("../handlers/LogOutHandler")
+const { loginValidators, registerValidators,changePasswordValidators } = require("../validators");
+const { logoutHandler } = require("../handlers/LogOutHandler");
 
 ///routes
-router.get("/auth", validateauth,authUserHandler);
-router.get('/logout',logoutHandler)
+router.put("/password", changePasswordValidators,validateChangePassword,changeUserPasswordHandler);
+router.get("/auth", validateauth, authUserHandler);
+router.get("/logout", logoutHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
 router.post("/login", loginValidators, validateLogin, loginHandler);
@@ -37,7 +40,7 @@ router.post(
   registerUserHandler
 );
 
-router.delete("/:id", validateauth, validateAdmin,deleteUserHandler);
+router.delete("/:id", validateauth, validateAdmin, deleteUserHandler);
 
 router.patch("/:id", logicalDeletionUserHandler);
 

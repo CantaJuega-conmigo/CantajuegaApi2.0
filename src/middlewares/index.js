@@ -3,5 +3,6 @@ module.exports={
     validateUpdateProgress:require('./validateEditProgress'),
     validateRegister:require('./validateRegister'),
     validateLogin:require('./validateLogin'),
-    validateAdmin:require('./validateAdmin')
+    validateAdmin:require('./validateAdmin'),
+    validateChangePassword:require('./validateChangePassword')
 }
