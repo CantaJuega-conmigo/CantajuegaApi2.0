@@ -1,3 +1,4 @@
 module.exports={
-    verifyIsAdmin:require('./verifyIsAdmin')
+    verifyIsAdmin:require('./verifyIsAdmin'),
+    generateOtpCode:require('./generateOtpCode')
 }
