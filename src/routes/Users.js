@@ -24,11 +24,12 @@ const {
 
 ///validators
 
-const { loginValidators, registerValidators,changePasswordValidators } = require("../validators");
+const { loginValidators, registerValidators,changePasswordValidators ,recoverPasswordValidators} = require("../validators");
 const { logoutHandler } = require("../handlers/LogOutHandler");
 
 ///routes
 router.get('/password',recoverUserPasswordHandler)
+router.put('/password/recover',changeUserPasswordHandler)
 router.put("/password", changePasswordValidators,validateChangePassword,changeUserPasswordHandler);
 router.get("/auth", validateauth, authUserHandler);
 router.get("/logout", logoutHandler);
