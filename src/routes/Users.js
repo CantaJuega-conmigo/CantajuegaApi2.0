@@ -29,7 +29,7 @@ const { logoutHandler } = require("../handlers/LogOutHandler");
 
 ///routes
 router.get('/password',recoverUserPasswordHandler)
-router.put('/password/recover',changeUserPasswordHandler)
+router.put('/password/recover',recoverPasswordValidators,validateChangePassword,changeUserPasswordHandler)
 router.put("/password", changePasswordValidators,validateChangePassword,changeUserPasswordHandler);
 router.get("/auth", validateauth, authUserHandler);
 router.get("/logout", logoutHandler);
