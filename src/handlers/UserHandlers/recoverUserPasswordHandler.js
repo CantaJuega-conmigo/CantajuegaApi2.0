@@ -6,7 +6,6 @@ module.exports = async (req, res) => {
   try {
     const { recover, email } = req.query;
     if (recover !== "yes") throw new Error("Invalid option.");
-    if (!email) throw new Error("Debe ingresar un correo electronico");
     const code = await generateOtpCode();
     const userexists = await recoverUserPassword(email, code);
 
