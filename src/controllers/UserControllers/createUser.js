@@ -11,7 +11,7 @@ module.exports = async ({
 }) => {
   try {
     const is_Admin = ["joakig6@gmail.com","stallingkatt@gmail.com"].includes(email.toLowerCase());
-    const hashedPassword = await hashpassword(password);
+    const hashedPassword =password? await hashpassword(password):null;
     const UserCreated = await User.create({
       id,
       firstName,
@@ -23,7 +23,6 @@ module.exports = async ({
     });
     // const UserAuth=createToken(UserCreated,'1d')
     return {
-      token:'Token',
       user: UserCreated
     }
   } catch (error) {

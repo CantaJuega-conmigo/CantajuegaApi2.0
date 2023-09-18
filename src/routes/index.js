@@ -10,7 +10,7 @@ router.use("/user", require("./Users"));
 router.use("/stage", require("./Stage"));
 router.use("/seed", require("./Seed"));
 router.use('/membership', require('./Membership'));
-
+router.use('/auth',require('./authgoogle'))
 // router.use("/", require("./publics"));
 
 router.get("/prueba", validateauth, (req, res) => {
