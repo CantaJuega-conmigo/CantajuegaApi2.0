@@ -11,7 +11,7 @@ router.use("/stage", require("./Stage"));
 router.use("/seed", require("./Seed"));
 router.use('/membership', require('./Membership'));
 router.use('/auth',require('./authgoogle'))
-// router.use("/", require("./publics"));
+router.use('/payments',require('./Payments'))
 
 router.get("/prueba", validateauth, (req, res) => {
   res.send("pagina privada");
