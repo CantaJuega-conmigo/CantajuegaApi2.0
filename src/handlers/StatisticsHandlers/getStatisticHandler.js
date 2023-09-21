@@ -6,6 +6,7 @@ const { response, ErrorResponse } = require('../../utils');
 
 module.exports = async (req, res) => {
   const { select } = req.query;
+
   try {
     if (select) {
       const searchQuery = await getStatisticByQuery(select);

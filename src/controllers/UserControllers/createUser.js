@@ -1,6 +1,7 @@
-const { User } = require("../../DB");
-const { hashpassword, sendEmailLogin } = require("../../utils");
-const {createToken}=require('../../auth')
+const { User } = require('../../DB');
+const { hashpassword, sendEmailLogin } = require('../../utils');
+const { createToken } = require('../../auth');
+const { updateStatistic } = require('../../controllers/StatisticsControllers');
 module.exports = async ({
   id,
   firstName,
@@ -10,7 +11,9 @@ module.exports = async ({
   MembershipId,
 }) => {
   try {
-    const is_Admin = ["joakig6@gmail.com","stallingkatt@gmail.com"].includes(email.toLowerCase());
+    const is_Admin = ['joakig6@gmail.com', 'stallingkatt@gmail.com'].includes(
+      email.toLowerCase()
+    );
     const hashedPassword = await hashpassword(password);
     const UserCreated = await User.create({
       id,
@@ -21,11 +24,12 @@ module.exports = async ({
       is_Admin,
       MembershipId,
     });
+    await updateStatistic('addUser');
     // const UserAuth=createToken(UserCreated,'1d')
     return {
-      token:'Token',
-      user: UserCreated
-    }
+      token: 'Token',
+      user: UserCreated,
+    };
   } catch (error) {
     throw error;
   }

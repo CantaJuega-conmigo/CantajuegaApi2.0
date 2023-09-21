@@ -1,6 +1,15 @@
-const { Stage } = require("../../DB");
+const { Stage } = require('../../DB');
+const { updateStatistic } = require('../../controllers/StatisticsControllers');
 
-module.exports = async ({id,name, description, minAge, maxAge,UserId,content}) => {
+module.exports = async ({
+  id,
+  name,
+  description,
+  minAge,
+  maxAge,
+  UserId,
+  content,
+}) => {
   try {
     const create = await Stage.create({
       id,
@@ -9,11 +18,12 @@ module.exports = async ({id,name, description, minAge, maxAge,UserId,content}) =
       minAge,
       maxAge,
       UserId,
-      content
+      content,
     });
+    await updateStatistic('addStage');
     return create;
   } catch (error) {
     console.log(error);
-    throw new Error("Error in the server create");
+    throw new Error('Error in the server create');
   }
 };

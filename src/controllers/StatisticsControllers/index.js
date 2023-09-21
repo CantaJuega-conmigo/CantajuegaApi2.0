@@ -3,4 +3,5 @@ module.exports = {
   getStatistic: require('./getStatistic'),
   getStatisticByQuery: require('./getStatisticByQuery'),
   validate: require('./validate'),
+  updateStatistic: require('./updateStatistic'),
 };
