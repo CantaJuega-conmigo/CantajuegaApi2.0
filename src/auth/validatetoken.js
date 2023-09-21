@@ -1,6 +1,7 @@
 const jswt = require("jsonwebtoken");
 const secret = "SECRETO";
 module.exports = (tokenvalue) => {
+  ///valida que json web token sea correcto
   const token = tokenvalue;
   if (!token) {
     return {
