@@ -1,4 +1,5 @@
-const { Stage } = require("../../DB");
+const { Stage } = require('../../DB');
+const { updateStatistic } = require('../../controllers/StatisticsControllers');
 
 module.exports = async (id) => {
   try {
@@ -7,9 +8,10 @@ module.exports = async (id) => {
         id: id,
       },
     });
+    await updateStatistic('deleteStage');
     return deleteStage;
   } catch (error) {
     console.log(error);
-    throw new Error("Error in the server delete");
+    throw new Error('Error in the server delete');
   }
 };

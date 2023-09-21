@@ -1,6 +1,7 @@
-const { User } = require("../../DB");
-const { hashpassword, sendEmailLogin } = require("../../utils");
-const {createToken}=require('../../auth')
+const { User } = require('../../DB');
+const { hashpassword, sendEmailLogin } = require('../../utils');
+const { createToken } = require('../../auth');
+const { updateStatistic } = require('../../controllers/StatisticsControllers');
 module.exports = async ({
   id,
   firstName,
@@ -21,6 +22,7 @@ module.exports = async ({
       is_Admin,
       MembershipId,
     });
+    await updateStatistic('addUser');
     // const UserAuth=createToken(UserCreated,'1d')
     return {
       user: UserCreated
