@@ -3,9 +3,9 @@ const server = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
-const passport = require("./auth/google-auth");
 const session = require("express-session");
 require("./DB");
+const passport = require("./auth/google-auth");
 server.use(
   cors({
     origin: ["http://localhost:3000", "https://cantajuega2-0.vercel.app"],
