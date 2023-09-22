@@ -7,5 +7,7 @@ module.exports = {
     authUserHandler:require('./authUserHandler'),
     changeUserPasswordHandler:require('./changeUserPasswordHandler'),
     recoverUserPasswordHandler:require('./recoverUserPasswordHandler'),
-    updateUserHandler:require('./updateUserHandler')
+    updateUserHandler:require('./updateUserHandler'),
+    verifyEmailUserHandler:require('./verifyEmailUserHandler')
+
 }

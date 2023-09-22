@@ -5,5 +5,6 @@ module.exports = {
   logicalDeletionUser: require("./logicalDeletionUser"),
   changeUserPassword: require("./changeUserPassword"),
   recoverUserPassword:require('./recoverPassword'),
-  updateUser:require('./updateUser')
+  updateUser:require('./updateUser'),
+  verifyEmailUser:require('./verifyEmailUser')
 };

@@ -10,7 +10,8 @@ const {
   authUserHandler,
   changeUserPasswordHandler,
   recoverUserPasswordHandler,
-  updateUserHandler
+  updateUserHandler,
+  verifyEmailUserHandler
 } = require("../handlers/UserHandlers");
 
 const { loginHandler } = require("../handlers/LoginHandler");
@@ -28,7 +29,9 @@ const {
 const { loginValidators, registerValidators,changePasswordValidators ,recoverPasswordValidators} = require("../validators");
 const { logoutHandler } = require("../handlers/LogOutHandler");
 
+
 ///routes
+router.get('/verify',verifyEmailUserHandler)
 router.get('/password',recoverUserPasswordHandler)
 router.put('/password/recover',recoverPasswordValidators,validateChangePassword,changeUserPasswordHandler)
 router.put("/password", changePasswordValidators,validateChangePassword,changeUserPasswordHandler);
