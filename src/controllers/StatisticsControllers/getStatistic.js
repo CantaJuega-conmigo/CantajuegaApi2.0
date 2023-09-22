@@ -7,9 +7,9 @@ module.exports = async () => {
       //Compruevo que exista la estadistica, de no ser asi entonces lanzo un error
       return getStatistic;
     } else {
-      throw new Error(`The statistics were not found`);
+      throw new Error(`No se encontró ninguna estadística`);
     }
   } catch (error) {
-    throw new Error(`Error in the server 'getStatistic': ${error.message}`);
+    throw new Error(`Error en el servidor 'getStatistic': ${error.message}`);
   }
 };

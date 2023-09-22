@@ -18,7 +18,7 @@ module.exports = async (query) => {
     return searchQuery;
   } catch (error) {
     throw new Error(
-      `Error in the server 'getStatisticByQuery': ${error.message}. The query must be exact to one of the properties of the Statistics model`
+      `Error en el servidor 'getStatisticByQuery': ${error.message}. La query debe ser exacta a alguna de las propiedades del modelo Statistics`
     );
   }
 };
