@@ -1,4 +1,5 @@
 module.exports={
     createPaymentHandler:require('./createPaymentHandler'),
-    getPaymentsHandler:require('./getPaymentsHandler')
+    getPaymentsHandler:require('./getPaymentsHandler'),
+    getRecurrentProducts:require('./getRecurrenteProducts')
 }
