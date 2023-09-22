@@ -60,9 +60,11 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: null,
       },
+      Otp_Code_Email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
     },
-    {
-      timestamps: false,
-    }
   );
 };
