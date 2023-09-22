@@ -9,7 +9,8 @@ const {
   logicalDeletionUserHandler,
   authUserHandler,
   changeUserPasswordHandler,
-  recoverUserPasswordHandler
+  recoverUserPasswordHandler,
+  updateUserHandler
 } = require("../handlers/UserHandlers");
 
 const { loginHandler } = require("../handlers/LoginHandler");
@@ -35,6 +36,7 @@ router.get("/auth", validateauth, authUserHandler);
 router.get("/logout", logoutHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
+router.post('/edit/:id',updateUserHandler)
 router.post("/login", loginValidators, validateLogin, loginHandler);
 router.post(
   "/register",

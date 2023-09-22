@@ -6,5 +6,6 @@ module.exports = {
     logicalDeletionUserHandler: require('./logicalDeletionUserHandler'),
     authUserHandler:require('./authUserHandler'),
     changeUserPasswordHandler:require('./changeUserPasswordHandler'),
-    recoverUserPasswordHandler:require('./recoverUserPasswordHandler')
+    recoverUserPasswordHandler:require('./recoverUserPasswordHandler'),
+    updateUserHandler:require('./updateUserHandler')
 }
