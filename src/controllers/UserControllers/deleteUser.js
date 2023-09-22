@@ -6,7 +6,7 @@ module.exports = async (id) => {
     if (!deleteUser) {
       throw new Error('Falló la petición');
     }
-    await updateStatistic('usuario borrado');
+    await updateStatistic('deleteUser');
     return deleteUser;
   } catch (error) {
     throw error;
