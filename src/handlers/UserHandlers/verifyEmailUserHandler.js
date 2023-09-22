@@ -4,6 +4,8 @@ const { response, ErrorResponse } = require("../../utils");
 module.exports = async (req, res) => {
   try {
     const { email, code } = req.query;
+    if(!code) throw new Error('Ingrese un codigo.')
+    if(!email) throw new Error('Error in the server, email is required.')
     const isCorrectCode = await verifyEmailUser(email, code);
     if (!isCorrectCode) throw new Error();
     console.log('en handler')
