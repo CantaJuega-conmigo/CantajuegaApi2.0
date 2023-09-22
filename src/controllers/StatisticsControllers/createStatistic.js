@@ -5,6 +5,6 @@ module.exports = async () => {
     const create = await Statistic.create();
     return create;
   } catch (error) {
-    throw new Error(`Error in the server 'createStatistic': ${error.message}`);
+    throw new Error(`Error en el servidor 'createStatistic': ${error.message}`);
   }
 };

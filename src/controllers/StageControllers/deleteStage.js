@@ -8,10 +8,13 @@ module.exports = async (id) => {
         id: id,
       },
     });
-    await updateStatistic('deleteStage');
-    return deleteStage;
+    if (deleteStage) {
+      await updateStatistic('deleteStage');
+      return deleteStage;
+    } else {
+      throw new Error('No se pudo borrar el Stage');
+    }
   } catch (error) {
-    console.log(error);
-    throw new Error('Error in the server delete');
+    throw new Error(`Error en el servidor deleteStage: ${error.message}`);
   }
 };

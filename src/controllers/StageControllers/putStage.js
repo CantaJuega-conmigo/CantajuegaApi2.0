@@ -1,4 +1,4 @@
-const { Stage } = require("../../DB");
+const { Stage } = require('../../DB');
 
 module.exports = async (id, newData) => {
   try {
@@ -7,9 +7,10 @@ module.exports = async (id, newData) => {
         id: id,
       },
     });
+    console.log(updateStage);
     return updateStage;
   } catch (error) {
     console.log(error);
-    throw new Error("Error in the server Put");
+    throw new Error('Error en el servidor putStage');
   }
 };

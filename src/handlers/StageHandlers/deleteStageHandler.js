@@ -1,12 +1,12 @@
-const { deleteStage } = require("../../controllers/StageControllers");
+const { deleteStage } = require('../../controllers/StageControllers');
+const { response, ErrorResponse } = require('../../utils');
 
 module.exports = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   try {
     const deleted = await deleteStage(id);
-    res.status(200).json({ message: "stage deleted", deleted });
+    response(res, 200, { message: 'Stage Borrado', data: deleted });
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Error in the server");
+    ErrorResponse(res, 500, error);
   }
 };
