@@ -5,7 +5,6 @@ const {
   deleteUserHandler,
   getUsersHandler,
   registerUserHandler,
-  editUserHandler,
   logicalDeletionUserHandler,
   authUserHandler,
   changeUserPasswordHandler,
@@ -39,7 +38,7 @@ router.get("/auth", validateauth, authUserHandler);
 router.get("/logout", logoutHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
-router.post('/edit/:id',updateUserHandler)
+router.put('/edit/:id',updateUserHandler)
 router.post("/login", loginValidators, validateLogin, loginHandler);
 router.post(
   "/register",
@@ -52,5 +51,4 @@ router.delete("/:id", validateauth, validateAdmin, deleteUserHandler);
 
 router.patch("/:id", logicalDeletionUserHandler);
 
-router.put("/:id", validateauth, validateAdmin, editUserHandler);
 module.exports = router;
