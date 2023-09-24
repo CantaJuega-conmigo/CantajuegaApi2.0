@@ -8,8 +8,8 @@ module.exports= [
         duration: 1,
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
-        recurrenteId:'prod_6sl3mnqq'
-        // recurrenteId:'prod_wmqaobmf'
+        recurrenteId:'prod_6sl3mnqq',
+        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
     },
     {
         id: uuidv4(),
@@ -19,8 +19,8 @@ module.exports= [
         duration: 6,
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
-        recurrenteId:'prod_6sl3mnqq'
-        // recurrenteId:'prod_wmqaobmf'
+        recurrenteId:'prod_6sl3mnqq',
+        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
     },
     {
         id: uuidv4(),
@@ -30,8 +30,8 @@ module.exports= [
         duration: 12,
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
-        recurrenteId:'prod_6sl3mnqq'
-        // recurrenteId:'prod_wmqaobmf'
+        recurrenteId:'prod_6sl3mnqq',
+        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
 
     },
     {
@@ -42,7 +42,7 @@ module.exports= [
         duration: 6,
         text1:'Canciones digitales disponibles.',
 
-        recurrenteId:'prod_6sl3mnqq'
-        // recurrenteId:'prod_wmqaobmf'
+        recurrenteId:'prod_6sl3mnqq',
+        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
     }
 ]
