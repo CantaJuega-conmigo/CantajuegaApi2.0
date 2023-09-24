@@ -7,9 +7,9 @@ const {
 
 const router = Router();
 
-router.get("/", getPaymentsHandler);
-router.post("/", createPaymentHandler);
-router.get("/products", getRecurrentProducts);
-router.get("/products/:id", getRecurrentProducts);
+router.get("/", getPaymentsHandler);//para usar con webhooks
+router.post("/", createPaymentHandler);//para usar con webhooks
+router.get("/products", getRecurrentProducts);//si
+router.get("/products/:id", getRecurrentProducts);//si
 
 module.exports = router;
