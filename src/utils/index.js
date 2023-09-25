@@ -6,5 +6,6 @@ module.exports = {
   validateProgressAtributtes: require('./validateProgressAtributtes'),
   getObjectAtributtes:require('./getObjectAtributtes'),
   ErrorResponse:require('./ErrorResponse'),
-  response:require('./response')
+  response:require('./response'),
+  getIncorrectAtributtesBody:require('./getIncorrectAtributtesBody')
 };

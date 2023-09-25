@@ -11,16 +11,27 @@ module.exports = (sequelize) => {
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
       },
-      status: DataTypes.ENUM("pending", "paid", "canceled", "failed", "expired"),
-      recurrenteId: {
-        type: DataTypes.STRING,
+      status:{
+        type:DataTypes.ENUM("pending", "paid", "canceled", "failed", "expired"),
+        defaultValue:"pending",
+        allowNull:false
       },
-      checkoutUrl: {
+      recurrente_Id: {
         type: DataTypes.STRING,
+        allowNull:false
       },
+      // checkout_url: {
+      //   type: DataTypes.STRING,
+      //   allowNull:false
+      // },
+      // date_Of_Creation:{
+      //   type:DataTypes.DATE,
+      //   defaultValue:DataTypes.NOW
+      // },
+      date_Of_Payment:{
+        type:DataTypes.DATE,
+        allowNull:true
+      }
     },
-    {
-      timestamps: false,
-    }
   );
 };

@@ -4,5 +4,8 @@ module.exports={
     validateRegister:require('./validateRegister'),
     validateLogin:require('./validateLogin'),
     validateAdmin:require('./validateAdmin'),
-    validateChangePassword:require('./validateChangePassword')
+    validateChangePassword:require('./validateChangePassword'),
+    googleauth:require('./googleauth'),
+    googlecallback:require('./googlecallback'),
+    validateUpdateUser:require('./validateUpdateUser')
 }

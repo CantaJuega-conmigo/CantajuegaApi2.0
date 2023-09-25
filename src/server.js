@@ -1,23 +1,27 @@
 const express = require("express");
 const server = express();
 const cors = require("cors");
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
-const {FRONT_DOMAIN} = process.env;
+const session = require("express-session");
 require("./DB");
+const passport = require("./auth/google-auth");
 server.use(
   cors({
     origin: ["http://localhost:3000", "https://cantajuega2-0.vercel.app"],
-    methods: ["OPTIONS", "GET", "POST", "PUT", "DELETE","PATCH"],
-    credentials:true
+    methods: ["OPTIONS", "GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true,
   })
 );
-server.use(cookieParser())
+server.use(cookieParser());
+server.use(
+  session({ secret: "secreto", resave: true, saveUninitialized: true })
+);
 
-// server.get('/vercookie',(req,res)=>{
-//   console.log(req.cookies.accesscookie);
-//   res.send('ver coookie')
-// })
+server.use(passport.initialize());
+server.use(passport.session());
+
+
 server.use(express.urlencoded({ extended: false }));
 server.use(morgan("dev"));
 server.use(express.json());

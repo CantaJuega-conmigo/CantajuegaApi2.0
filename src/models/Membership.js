@@ -34,6 +34,10 @@ module.exports = (sequelize) => {
         type:DataTypes.STRING,
         allowNull:false
       },
+      checkout:{
+        type:DataTypes.STRING,
+        allowNull:true
+      },
       deleted: {
         type: DataTypes.BOOLEAN,
         defaultValue: false

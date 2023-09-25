@@ -1,5 +1,7 @@
 const validateToken = require("./validatetoken");
 module.exports = async (req) => {
+  //usada automaticamente en algunas rutas como middleware.
+  //aqui validamos que venga una cookie, a diferencia de validateAuth, este se en un middleware para que el usuario acceda a ciertas rutas
   const { accesscookie } = req.cookies;
   console.log('en validate cookie',accesscookie);
   const isCookieExists = accesscookie ? true : false;

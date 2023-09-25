@@ -9,6 +9,7 @@ module.exports = async ({
   text2,
   text3,
   recurrenteId,
+  checkout
 }) => {
   try {
     const addMembership = await Membership.create({
@@ -20,6 +21,7 @@ module.exports = async ({
       text2,
       text3,
       recurrenteId,
+      checkout
     });
     console.log('ENTRE CONTRO');
     await updateStatistic('addMembership');
