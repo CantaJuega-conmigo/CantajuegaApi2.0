@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
         unique: true,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: true,
       },
       email_verified: {
