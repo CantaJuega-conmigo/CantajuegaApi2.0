@@ -15,6 +15,6 @@ module.exports = async (id) => {
       throw new Error('No se pudo borrar el Stage');
     }
   } catch (error) {
-    throw new Error(`Error en el servidor deleteStage: ${error.message}`);
+    throw new Error(`Error en el servidor 'deleteStage': ${error.message}`);
   }
 };

@@ -31,7 +31,7 @@ module.exports = async ({
       user: UserCreated,
     };
   } catch (error) {
-    throw error;
+    throw new Error(`Error en el servidor 'createUser': ${error.message}`);
   }
 
   // await sendEmailLogin(firstName, email);

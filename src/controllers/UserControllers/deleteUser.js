@@ -9,6 +9,6 @@ module.exports = async (id) => {
     await updateStatistic('deleteUser');
     return deleteUser;
   } catch (error) {
-    throw error;
+    throw new Error(`Error en el servidor 'deleteUser': ${error.message}`);
   }
 };

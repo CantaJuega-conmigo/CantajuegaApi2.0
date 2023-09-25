@@ -1,6 +1,6 @@
 module.exports = {
-    getMembership: require('./getMembership'),
-    createMembership: require("./createMembership"),
-    daleteMembership: require('./daleteMembership'),
-    logicalDeletion: require('./logicalDeletionMembership')
-}
+  getMembership: require('./getMembership'),
+  createMembership: require('./createMembership'),
+  daleteMembership: require('./daleteMembership'),
+  logicalDeletionMembership: require('./logicalDeletionMembership'),
+};
