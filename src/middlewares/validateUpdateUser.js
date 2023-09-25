@@ -21,7 +21,7 @@ module.exports = async (req, res, next) => {
     if (isAnyError) {
       errors = validateErrors;
       throw new Error(
-        "Error in server, if the error persists contact with any admin."
+        "Server error."
       );
     }
     next();
