@@ -3,5 +3,5 @@ module.exports={
     registerValidators:require('./registerValidators'),
     changePasswordValidators:require('./changePasswordValidators'),
     recoverPasswordValidators:require('./recoverPasswordValidator'),
-    editUserPasswordValidators:require('./editUserValidators')
+    editUserValidators:require('./editUserValidators')
 }

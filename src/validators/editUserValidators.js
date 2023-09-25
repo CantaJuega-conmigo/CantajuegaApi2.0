@@ -1,5 +1,7 @@
-const { check } = require("express-validator");
+const { check ,param} = require("express-validator");
 const passwordValidator = require("./passwordValidator");
 module.exports=[
-    passwordValidator
+    param('id').isUUID('all').withMessage('Incorrect type of param.'),
+    passwordValidator,
+    check('firstName').isString().escape()
 ]

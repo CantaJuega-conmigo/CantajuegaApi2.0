@@ -10,7 +10,7 @@ const {
   changeUserPasswordHandler,
   recoverUserPasswordHandler,
   updateUserHandler,
-  verifyEmailUserHandler
+  verifyEmailUserHandler,
 } = require("../handlers/UserHandlers");
 
 const { loginHandler } = require("../handlers/LoginHandler");
@@ -21,24 +21,40 @@ const {
   validateauth,
   validateAdmin,
   validateChangePassword,
+  validateUpdateUser
 } = require("../middlewares");
 
 ///validators
 
-const { loginValidators, registerValidators,changePasswordValidators ,recoverPasswordValidators} = require("../validators");
+const {
+  loginValidators,
+  registerValidators,
+  changePasswordValidators,
+  recoverPasswordValidators,
+  editUserValidators,
+} = require("../validators");
 const { logoutHandler } = require("../handlers/LogOutHandler");
 
-
 ///routes
-router.get('/verify',verifyEmailUserHandler)
-router.get('/password',recoverUserPasswordHandler)
-router.put('/password/recover',recoverPasswordValidators,validateChangePassword,changeUserPasswordHandler)
-router.put("/password", changePasswordValidators,validateChangePassword,changeUserPasswordHandler);
+router.get("/verify", verifyEmailUserHandler);
+router.get("/password", recoverUserPasswordHandler);
+router.put(
+  "/password/recover",
+  recoverPasswordValidators,
+  validateChangePassword,
+  changeUserPasswordHandler
+);
+router.put(
+  "/password",
+  changePasswordValidators,
+  validateChangePassword,
+  changeUserPasswordHandler
+);
 router.get("/auth", validateauth, authUserHandler);
 router.get("/logout", logoutHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
-router.put('/edit/:id',updateUserHandler)
+router.put("/edit/:id", editUserValidators, validateUpdateUser,updateUserHandler);
 router.post("/login", loginValidators, validateLogin, loginHandler);
 router.post(
   "/register",

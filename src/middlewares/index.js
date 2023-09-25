@@ -6,5 +6,6 @@ module.exports={
     validateAdmin:require('./validateAdmin'),
     validateChangePassword:require('./validateChangePassword'),
     googleauth:require('./googleauth'),
-    googlecallback:require('./googlecallback')
+    googlecallback:require('./googlecallback'),
+    validateUpdateUser:require('./validateUpdateUser')
 }
