@@ -2,6 +2,9 @@ const { Membership } = require('../../DB');
 
 module.exports = async (id) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 659d343c416e1fb50cefc57a10eb3c832d7f53a7
   try {
     const membership = await Membership.findByPk(id);
     if (membership.deleted === false)
@@ -14,6 +17,7 @@ module.exports = async (id) => {
     );
   }
 };
+<<<<<<< HEAD
 =======
     const membershipfind = await Membership.findByPk(id);
     try {
@@ -29,3 +33,5 @@ module.exports = async (id) => {
     }
 };
 >>>>>>> 318ed9c0ed576e5be7f60ec730c3f1116cc6cc26
+=======
+>>>>>>> 659d343c416e1fb50cefc57a10eb3c832d7f53a7

@@ -5,6 +5,13 @@ const { response, ErrorResponse } = require('../utils');
 const { newProductRecurrente } = require('../helpers/PaymentsHelpers');
 const router = Router();
 
+
+
+
+
+
+
+
 router.get('/', (req, res) => {
   res.send('Welcome to Cantajuega');
 });

@@ -11,5 +11,5 @@ module.exports = async (id, newData) => {
   } catch (error) {
     console.log(error);
     throw new Error(`Error en el servidor 'putChild': ${error.message}`);
-  }
+  } 
 };
