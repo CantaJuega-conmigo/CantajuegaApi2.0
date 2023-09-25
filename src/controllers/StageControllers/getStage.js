@@ -1,4 +1,4 @@
-const { Stage, Child } = require("../../DB");
+const { Stage, Child } = require('../../DB');
 
 module.exports = async (relations) => {
   try {
@@ -8,6 +8,6 @@ module.exports = async (relations) => {
     return allStage;
   } catch (error) {
     console.log(error);
-    throw new Error("Error in the server get");
+    throw new Error(`Error en el servidor 'getStage': ${error.message}`);
   }
 };

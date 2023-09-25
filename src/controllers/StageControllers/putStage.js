@@ -11,6 +11,6 @@ module.exports = async (id, newData) => {
     return updateStage;
   } catch (error) {
     console.log(error);
-    throw new Error('Error en el servidor putStage');
+    throw new Error(`Error en el servidor 'putStage': ${error.message}`);
   }
 };

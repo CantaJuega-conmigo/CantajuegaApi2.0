@@ -14,6 +14,6 @@ module.exports = async () => {
       return true;
     }
   } catch (error) {
-    throw new Error(`Error en el servidor 'validate' ${error.message}`);
+    throw new Error(`Error en el servidor 'validate': ${error.message}`);
   }
 };

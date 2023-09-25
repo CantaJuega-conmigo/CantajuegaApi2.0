@@ -11,6 +11,6 @@ module.exports = async (id) => {
     return deleteChild;
   } catch (error) {
     console.log(error);
-    throw new Error('Error in the server delete');
+    throw new Error(`Error en el servidor 'deleteChild': ${error.message}`);
   }
 };

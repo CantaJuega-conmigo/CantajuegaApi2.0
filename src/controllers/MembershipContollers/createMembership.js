@@ -27,6 +27,8 @@ module.exports = async ({
     await updateStatistic('addMembership');
     return addMembership;
   } catch (error) {
-    throw new Error('Error in the server create');
+    throw new Error(
+      `Error en el servidor 'createMembership': ${error.message}`
+    );
   }
 };

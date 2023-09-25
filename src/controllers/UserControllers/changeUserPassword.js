@@ -21,6 +21,8 @@ module.exports = async (email, newpassword, password, OTPcode) => {
     if (!resqueststatus) throw new Error('Fallo el cambio de contraseña');
     return true;
   } catch (error) {
-    throw error;
+    throw new Error(
+      `Error en el servidor 'changeUserPassword': ${error.message}`
+    );
   }
 };

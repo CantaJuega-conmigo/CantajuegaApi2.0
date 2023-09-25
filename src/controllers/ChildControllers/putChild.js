@@ -1,4 +1,4 @@
-const { Child } = require("../../DB");
+const { Child } = require('../../DB');
 
 module.exports = async (id, newData) => {
   try {
@@ -10,6 +10,6 @@ module.exports = async (id, newData) => {
     return updateChild;
   } catch (error) {
     console.log(error);
-    throw new Error("Error in the server Put");
-  }
+    throw new Error(`Error en el servidor 'putChild': ${error.message}`);
+  } 
 };

@@ -1,6 +1,6 @@
 const {
   logicalDeletionMembership,
-} = require('../../controllers/MembershipContollers/logicalDeletionMembership');
+} = require('../../controllers/MembershipContollers');
 const { response, ErrorResponse } = require('../../utils');
 
 module.exports = async (req, res) => {
