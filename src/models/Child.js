@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
       age: {
         type: DataTypes.INTEGER,
       },
+      deleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       Stages_Completed: {
         type: DataTypes.ARRAY(DataTypes.JSON),
         allowNull: true,

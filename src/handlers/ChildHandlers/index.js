@@ -3,4 +3,5 @@ module.exports = {
   createChildHandler: require("./createChildHandler"),
   deleteChildHandler: require("./deleteChildHandler"),
   putChildHandler: require("./putChildHandler"),
+  logicalDeletionChildHandler: require("./logicalDeletionChildHandler"),
 };
