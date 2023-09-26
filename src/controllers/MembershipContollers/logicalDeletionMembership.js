@@ -1,7 +1,6 @@
 const { Membership } = require('../../DB');
 
 module.exports = async (id) => {
-
   try {
     const membership = await Membership.findByPk(id);
     if (membership.deleted === false)
