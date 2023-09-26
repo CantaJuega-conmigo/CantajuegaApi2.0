@@ -1,4 +1,4 @@
-module.exports=async(Model,id,{message1,message})=>{
+module.exports=async(Model,id,{message1,message2})=>{
 
     const model = await Model.findByPk(id);
     const updated = await Model.update(
