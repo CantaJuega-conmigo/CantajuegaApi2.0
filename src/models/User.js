@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
         unique: true,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
         allowNull: true,
       },
       email_verified: {
@@ -60,9 +60,11 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: null,
       },
+      Otp_Code_Email: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: null,
+      },
     },
-    {
-      timestamps: false,
-    }
   );
 };

@@ -1,8 +1,8 @@
-const { User } = require("../../DB");
+const { User } = require('../../DB');
 module.exports = async (email, code) => {
   try {
     const userexists = await User.findOne({ where: { email: email } });
-    if (!userexists) throw new Error("El correo electronico no es valido.");
+    if (!userexists) throw new Error('El correo electronico no es valido.');
     const codecreated = await User.update(
       { OTPcode: code },
       { where: { email: email } }
@@ -10,10 +10,10 @@ module.exports = async (email, code) => {
 
     if (codecreated[0] !== 1)
       throw new Error(
-        "Error al generar el codigo para actualizar la contraseña"
+        'Error al generar el codigo para actualizar la contraseña'
       );
     return true;
   } catch (error) {
-    throw error;
+    throw new Error(`Error en el servidor 'recoverPassword': ${error.message}`);
   }
 };

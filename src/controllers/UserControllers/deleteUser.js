@@ -4,11 +4,11 @@ module.exports = async (id) => {
   try {
     const deleteUser = await User.destroy({ where: { id: id } });
     if (!deleteUser) {
-      throw new Error('Resquest failed.');
+      throw new Error('Falló la petición');
     }
     await updateStatistic('deleteUser');
     return deleteUser;
   } catch (error) {
-    throw error;
+    throw new Error(`Error en el servidor 'deleteUser': ${error.message}`);
   }
 };

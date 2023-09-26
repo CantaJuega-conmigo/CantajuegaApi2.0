@@ -1,4 +1,5 @@
-const { createChild } = require("../../controllers/ChildControllers");
+const { createChild } = require('../../controllers/ChildControllers');
+const { response, ErrorResponse } = require('../../utils');
 
 module.exports = async (req, res) => {
   // const { firstName, lastName, gender, birthDate, age } = req.body;
@@ -12,10 +13,8 @@ module.exports = async (req, res) => {
       // age
       req.body
     );
-
-    return res.status(201).json(child);
+    response(res, 201, { data: child });
   } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Error in the server" });
+    ErrorResponse(res, 500, error);
   }
 };

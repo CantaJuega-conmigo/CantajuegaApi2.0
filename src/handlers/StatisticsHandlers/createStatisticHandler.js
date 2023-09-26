@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
       //compruevo que no haya ningún Statistic creado, si esta ok, entonces lo creo
       await createStatistic();
       // res.status(201).send({ message: 'Statistic successfully created' });
-      return response(res, 201, { message: 'Statistic successfully created' });
+      return response(res, 201, { message: 'Estadistica creada con éxito' });
     }
   } catch (error) {
     // res.status(500).send({ message: error.message });

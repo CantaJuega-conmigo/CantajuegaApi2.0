@@ -54,6 +54,6 @@ module.exports = async (string) => {
       return 'Total_Childs - 1';
     }
   } catch (error) {
-    throw new Error(`Error in the server 'updateStatistic': ${error.message}`);
+    throw new Error(`Error en el servidor 'updateStatistic': ${error.message}`);
   }
 };

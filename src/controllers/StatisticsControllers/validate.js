@@ -7,11 +7,13 @@ module.exports = async () => {
   try {
     const getAllStatistics = await Statistic.findAll();
     if (getAllStatistics.length >= 1) {
-      throw new Error('You cannot create more than one statistic');
+      throw new Error(
+        'Ya existe una estadística, no se puede crear mas de una.'
+      );
     } else {
       return true;
     }
   } catch (error) {
-    throw new Error(`Error in the server: ${error.message}`);
+    throw new Error(`Error en el servidor 'validate': ${error.message}`);
   }
 };

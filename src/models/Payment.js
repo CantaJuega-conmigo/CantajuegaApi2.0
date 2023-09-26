@@ -20,14 +20,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull:false
       },
-      checkout_url: {
-        type: DataTypes.STRING,
-        allowNull:false
-      },
-      date_Of_Creation:{
-        type:DataTypes.DATE,
-        defaultValue:DataTypes.NOW
-      },
+      // checkout_url: {
+      //   type: DataTypes.STRING,
+      //   allowNull:false
+      // },
+      // date_Of_Creation:{
+      //   type:DataTypes.DATE,
+      //   defaultValue:DataTypes.NOW
+      // },
       date_Of_Payment:{
         type:DataTypes.DATE,
         allowNull:true

@@ -1,7 +1,15 @@
-const {Router}=require('express');
-const { getPaymentsHandler, createPaymentHandler } = require('../handlers/PaymentHandlers');
-const router =Router();
+const { Router } = require("express");
+const {
+  getPaymentsHandler,
+  createPaymentHandler,
+  getRecurrentProducts,
+} = require("../handlers/PaymentHandlers");
 
-router.get('/',getPaymentsHandler)
-router.post('/',createPaymentHandler)
-module.exports=router
+const router = Router();
+
+router.get("/", getPaymentsHandler);//para usar con webhooks
+router.post("/", createPaymentHandler);//para usar con webhooks
+router.get("/products", getRecurrentProducts);//si
+router.get("/products/:id", getRecurrentProducts);//si
+
+module.exports = router;

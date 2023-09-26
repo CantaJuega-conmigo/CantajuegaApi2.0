@@ -9,9 +9,10 @@ module.exports = async ({
   text2,
   text3,
   recurrenteId,
+  checkout
 }) => {
   try {
-    const addMembership = await Membership.create({
+    const newMembership = await Membership.create({
       id,
       price,
       description,
@@ -20,11 +21,13 @@ module.exports = async ({
       text2,
       text3,
       recurrenteId,
+      checkout
     });
-    console.log('ENTRE CONTRO');
     await updateStatistic('addMembership');
-    return addMembership;
+    return true;
   } catch (error) {
-    throw new Error('Error in the server create');
+    throw new Error(
+      `Error en el servidor 'createMembership': ${error.message}`
+    );
   }
 };

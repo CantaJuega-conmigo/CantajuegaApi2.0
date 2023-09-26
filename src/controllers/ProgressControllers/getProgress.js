@@ -1,7 +1,11 @@
-const { Progress } = require("../../DB");
+const { Progress } = require('../../DB');
 module.exports = async (id) => {
-  const HandlersResult = id
-    ? await Progress.findByPk(id,{include:'Child'})
-    : await Progress.findAll({include:'Child'});
-  return HandlersResult
+  try {
+    const HandlersResult = id
+      ? await Progress.findByPk(id, { include: 'Child' })
+      : await Progress.findAll({ include: 'Child' });
+    return HandlersResult;
+  } catch (error) {
+    throw new Error(`Error en el servidor 'getProgress': ${error.message}`);
+  }
 };

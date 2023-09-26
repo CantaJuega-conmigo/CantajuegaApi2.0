@@ -24,6 +24,6 @@ module.exports = async ({
     return create;
   } catch (error) {
     console.log(error);
-    throw new Error('Error in the server create');
+    throw new Error(`Error en el servidor 'createStage': ${error.message}`);
   }
 };
