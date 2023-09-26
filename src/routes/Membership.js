@@ -5,6 +5,7 @@ const { getMembershipHandler, createMembershipHandlers, deleteMembershipHandlers
 
 // GET
 router.get('/', getMembershipHandler);
+router.get('/:id', getMembershipHandler);
 
 // POST
 router.post('/', createMembershipHandlers);
@@ -13,4 +14,4 @@ router.post('/', createMembershipHandlers);
 router.delete('/:id', deleteMembershipHandlers);
 router.patch('/:id', logicalDeletionHandlers);
 
-module.exports = router;
+module.exports = router; 

@@ -9,7 +9,7 @@ module.exports= [
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
         recurrenteId:'prod_6sl3mnqq',
-        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
+        checkout:'https://app.recurrente.com/s/cantajuega-conmigo/membresia-estandar'
     },
     {
         id: uuidv4(),
@@ -20,7 +20,7 @@ module.exports= [
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
         recurrenteId:'prod_6sl3mnqq',
-        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
+        checkout:'https://app.recurrente.com/s/cantajuega-conmigo/membresia-trimestral'
     },
     {
         id: uuidv4(),
@@ -31,7 +31,7 @@ module.exports= [
         text1:'Materias de apoyo audiovisual.',
         text2: "Canciones del programa.",
         recurrenteId:'prod_6sl3mnqq',
-        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
+        checkout:'https://app.recurrente.com/s/cantajuega-conmigo/membresia-anual'
 
     },
     {
@@ -43,6 +43,6 @@ module.exports= [
         text1:'Canciones digitales disponibles.',
 
         recurrenteId:'prod_6sl3mnqq',
-        checkout:'https://app.recurrente.com/s/joaquin/membresias-anual-e2xqga'
+        checkout:'https://app.recurrente.com/s/cantajuega-conmigo/membresia-anual'
     }
 ]
