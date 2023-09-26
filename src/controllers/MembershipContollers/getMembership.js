@@ -1,9 +1,14 @@
-const { Membership } = require('../../DB');
+const { Membership } = require("../../DB");
 
-module.exports = async () => {
+module.exports = async (id) => {
   try {
-    const allMembership = await Membership.findAll({ include: ['Users'] });
-    return allMembership;
+    const memberships = !id
+      ? await Membership.findAll({ include: ["Users"] })
+      : await Membership.findByPk(id, { include: ["Users"] });
+    if (id && !memberships) throw new Error("Membresia no existe.");
+    if (!id && !memberships.length)
+      throw new Error("Membresias no encontradas.");
+    return memberships;
   } catch (error) {
     throw new Error(`Error en el servidor 'getMembership': ${error.message}`);
   }
