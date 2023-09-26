@@ -3,4 +3,5 @@ module.exports = {
   createStageHandler: require("./createStageHandler"),
   deleteStageHandler: require("./deleteStageHandler"),
   putStageHandler: require("./putStageHandler"),
+  logicalDeletionStageHandler: require("./logicalDeletionStageHandler"),
 };
