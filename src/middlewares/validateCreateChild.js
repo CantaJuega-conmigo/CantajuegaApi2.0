@@ -1,15 +1,15 @@
 const { validationResult } = require('express-validator');
-const { response, ErrorResponse } = require('../utils');
+const { ErrorResponse } = require('../utils');
 module.exports = async (req, res, next) => {
   let errors;
   try {
-    // const validateErrors = validationResult(req);
-    // if (!validateErrors.isEmpty()) {
-    //   errors = validateErrors;
-    //   throw new Error('Error');
-    // }
+    const validateErrors = validationResult(req);
+    if (!validateErrors.isEmpty()) {
+      errors = validateErrors;
+      throw new Error('Error');
+    }
 
-    //Por si no funciona express-validator
+    // Por si no funciona express-validator
 
     const { firstName, lastName, gender, birthDate, age } = req.body;
     const onlyLetters = /^[a-zA-ZÁÉÍÓÚáéíóúÑñüÜ]+$/;
