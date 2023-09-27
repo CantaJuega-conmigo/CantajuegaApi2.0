@@ -1,9 +1,9 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "Membership",
+    'Membership',
     {
       id: {
         type: DataTypes.UUID,
@@ -30,22 +30,17 @@ module.exports = (sequelize) => {
       text3: {
         type: DataTypes.STRING,
       },
-      recurrenteId:{
-        type:DataTypes.STRING,
-        allowNull:false
+      recurrenteId: {
+        type: DataTypes.STRING,
+      },
+      checkout: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       deleted: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
-      checkout:{
-        type:DataTypes.STRING,
-        allowNull:true
-      },
-      deleted: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-      }
     },
     {
       timestamps: false,

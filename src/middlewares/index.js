@@ -9,4 +9,5 @@ module.exports = {
   googlecallback: require('./googlecallback'),
   validateUpdateUser: require('./validateUpdateUser'),
   validateCreateChild: require('./validateCreateChild'),
+  validateCreateMembership: require('./validateCreateMembership'),
 };
