@@ -5,4 +5,5 @@ module.exports = {
   recoverPasswordValidators: require('./recoverPasswordValidator'),
   editUserValidators: require('./editUserValidators'),
   createChildValidator: require('./createChildValidator'),
+  createMembershipValidator: require('./createMembershipValidator'),
 };
