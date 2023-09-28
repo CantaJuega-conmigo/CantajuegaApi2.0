@@ -35,13 +35,12 @@ server.use(express.json({ limit: '100kb' }));
 server.use('/api', limiter, require('./routes'));
 
 //-------------------------------------------------------------
-const { Child } = require('./DB');
+const { updateStatistic } = require('./controllers/StatisticsControllers');
+const { Statistic } = require('./DB');
 server.get('/prueba', async (req, res) => {
-  const BODY = req.body;
   try {
-    const XD = await Child.create(BODY);
-
-    res.status(200).send(XD);
+    await updateStatistic('membershipActive');
+    res.status(200).send(await Statistic.findOne());
   } catch (error) {
     res.status(500).send(`Error en el servidor de prueba: ${error.message}`);
   }
