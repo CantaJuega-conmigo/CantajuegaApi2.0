@@ -18,11 +18,13 @@ module.exports = async () => {
     en que lo mejor es limpiar toda la tabla para crear un nuevo Statistic 
     con los datos actualizados*/
 
-    const users = await User.findAll({ include: { model: Membership } });
-    const stages = await Stage.findAll();
-    const memberships = await Membership.findAll();
-    const childs = await Child.findAll({ include: { model: Progress } });
-    const reports = await Report.findAll();
+    const [users, stages, memberships, childs, reports] = await Promise.all([
+      User.findAll({ include: { model: Membership } }),
+      Stage.findAll(),
+      Membership.findAll(),
+      Child.findAll({ include: { model: Progress } }),
+      Report.findAll(),
+    ]);
 
     //-----------------------------------------------------------------------
     let stagesCompleted = 0;
@@ -36,16 +38,18 @@ module.exports = async () => {
     /*Para calcular el total de stages completados, busco en el modelo Child
     la propiedad Stages_Completed y compruevo que sea un array y a su ves compruevo
     que ese array tenga al menos un elemento. Si tiene elementos calculo la longitud
-    y le sumo al contador la longitud de lada child */
+    y le sumo al contador la longitud de cada child */
     //-----------------------------------------------------------------------
     let stagesInProgress = 0;
     childs.forEach((child) => {
       if (child.Progress) stagesInProgress += 1;
+      //Si cada child tiene algo en la propiedad Progress, sumo +1 al contador
     });
     //-----------------------------------------------------------------------
     let membershipsActives = 0;
     users.forEach((user) => {
       if (user.Membership) membershipsActives += 1;
+      //Si cada usuario tiene algo en la propiedad Membership, sumo +1 al contador
     });
     //-----------------------------------------------------------------------
 
@@ -62,6 +66,8 @@ module.exports = async () => {
 
     const createNewEstatistic = await Statistic.create(newStatistic);
     return createNewEstatistic;
+    /*En resumen: Primero borro todos los datos que puedan haber en la tabla Statistics,
+    Luego recopilo el total de cada dato y por ultimo creo una nueva estadistica con los datos actualizados */
   } catch (error) {
     throw new Error(
       `Error en el servidor 'getForcedStatistic': ${error.message}`
