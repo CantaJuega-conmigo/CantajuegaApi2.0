@@ -10,4 +10,5 @@ module.exports = {
   validateUpdateUser: require('./validateUpdateUser'),
   validateCreateChild: require('./validateCreateChild'),
   validateCreateMembership: require('./validateCreateMembership'),
+  validateCreateStage: require('./validateCreateStage'),
 };

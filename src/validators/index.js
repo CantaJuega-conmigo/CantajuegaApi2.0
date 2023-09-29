@@ -6,4 +6,5 @@ module.exports = {
   editUserValidators: require('./editUserValidators'),
   createChildValidator: require('./createChildValidator'),
   createMembershipValidator: require('./createMembershipValidator'),
+  createStageValidator: require('./createStageValidator'),
 };
