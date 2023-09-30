@@ -6,7 +6,8 @@ const {
   createChildHandler,
   deleteChildHandler,
   putChildHandler,
-} = require('../handlers/ChildHandlers');
+  logicalDeletionChildHandler,
+} = require("../handlers/ChildHandlers");
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.post(
 );
 router.delete(':id', deleteChildHandler);
 router.put('/childs/:id', putChildHandler);
+router.patch('/:id',logicalDeletionChildHandler)
 
 module.exports = router;

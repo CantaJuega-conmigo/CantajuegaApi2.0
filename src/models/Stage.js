@@ -32,7 +32,11 @@ module.exports = (sequelize) => {
       content:{
         type:DataTypes.JSON(DataTypes.ARRAY(DataTypes.JSON)),
         allowNull:true
-      }
+      },
+      deleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
     },
     {
       timestamps: false,

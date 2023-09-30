@@ -53,6 +53,21 @@ module.exports = async (string) => {
       await getStatistics.save();
       return 'Total_Childs - 1';
     }
+    if (string === 'stageCompleted' && getStatistics) {
+      getStatistics.Stages_Completed += 1;
+      await getStatistics.save();
+      return 'Stages_Completed + 1';
+    }
+    if (string === 'stageInProgress' && getStatistics) {
+      getStatistics.Stages_In_Progress += 1;
+      await getStatistics.save();
+      return 'Stages_In_Progress + 1';
+    }
+    if (string === 'membershipActive' && getStatistics) {
+      getStatistics.Memberships_Actives += 1;
+      await getStatistics.save();
+      return 'Memberships_Actives + 1';
+    }
   } catch (error) {
     throw new Error(`Error en el servidor 'updateStatistic': ${error.message}`);
   }

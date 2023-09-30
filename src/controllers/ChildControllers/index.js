@@ -4,4 +4,5 @@ module.exports = {
   createChild: require("./createChild"),
   putChild: require("./putChild"),
   getChildById: require("./getChildbyId"),
+  logicalDeletionChild: require("./logicalDeletionChild"),
 };
