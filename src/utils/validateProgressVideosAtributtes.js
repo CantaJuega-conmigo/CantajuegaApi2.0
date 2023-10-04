@@ -14,7 +14,7 @@ module.exports = (req, select) => {
     return true;
   }
   if (select === "Final_Video") {
-    validateVideosProgress(newData, Final_Video,'videosAtributtes',select);
+    validateVideosProgress(req, Final_Video,'videosAtributtes',select);
     if (!newData.Last_Video_Completed) {
       //solo permitiremos la edicion , si el dato necesario ya fue visto
       throw new Error(
@@ -25,7 +25,7 @@ module.exports = (req, select) => {
     return true;
   }
   if (select !== "First_Video") {
-    validateVideosProgress(newData, Other_Videos,'videosAtributtes',select);
+    validateVideosProgress(req, Other_Videos,'videosAtributtes',select);
     if (!newData.Last_Video_Completed) {
       //solo permitiremos la edicion , si el dato necesario ya fue visto
       throw new Error(

@@ -4,5 +4,6 @@ module.exports={
     CompleteOtherVideos:require('./CompleteOtherVideos'),
     CompleteVideos:require('./CompleteVideos'),
     AllowFirstVideo:require('./AllowFirstVideo'),
-    AllowOtherVideos:require('./AllowOtherVideos')
+    AllowOtherVideos:require('./AllowOtherVideos'),
+    timeControlled:require('./timeControlled'),
 }

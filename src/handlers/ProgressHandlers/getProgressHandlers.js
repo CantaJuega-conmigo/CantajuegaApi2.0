@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
       // res.send(Progress);
       response(res, 200, { data: Progress });
     } else if (select && id) {
-      const result = await getProgress(id);
+      const result = await getProgress(id,select);
       if (!result[select]) throw new Error('Not found');
       // res.send(result[select]);
       response(res, 200, { data: result[select] });
