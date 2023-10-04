@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       ? await updateProgressVideos(id, data, select)
       : await updateProgress(id, data);
     // res.status(201).send(update);
-    response(res, 200, { data: update });
+    response(res, 200, { message: update });
   } catch (error) {
     // res.status(401).send(error.message);
     ErrorResponse(res, 401, error);
