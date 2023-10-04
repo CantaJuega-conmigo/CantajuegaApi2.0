@@ -17,12 +17,12 @@ module.exports = async (id) => {
           },
         });
         
-    if (id&&!allUsers) {
-      throw new Error('Sin usuario. La solicitud falló.');
-    }
-    if (!id&&!allUsers.length) {
-      throw new Error('Sin usuarios. La solicitud falló.');
-    }
+    // if (id&&!allUsers) {
+    //   throw new Error('Sin usuario. La solicitud falló.');
+    // }
+    // if (!id&&!allUsers.length) {
+    //   throw new Error('Sin usuarios. La solicitud falló.');
+    // }
     return allUsers;
   } catch (error) {
     throw new Error(`Error en el servidor 'getUsers': ${error.message}`);

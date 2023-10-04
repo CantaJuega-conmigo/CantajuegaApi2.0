@@ -1,5 +1,6 @@
 const CompleteOtherVideos=require('./CompleteOtherVideos')
-const CompleteFinalVideo=require('./CompleteFinalVideo')
+const CompleteFinalVideo=require('./CompleteFinalVideo');
+const timeControlled = require('./timeControlled');
 module.exports = async (ActualProgress, newData, select, id, ProgressModel) => {
   try {
     const lastTotal = ActualProgress.dataValues[select].Total;
@@ -26,10 +27,11 @@ module.exports = async (ActualProgress, newData, select, id, ProgressModel) => {
         `No es posible actualizar el atributo,${fifthAtributte} ya que el video ya fue visto.`
       );
     }
+    newData.one_Day_Passed =newData.one_Day_Passed?true:timeControlled(newData.day_Started)//nos fijamos si el tiempo necesario para desbloquear el otro video ya paso
     ///solo cuando la vista del video  llega a 2
     if (totalRecibed === 2) {
       newData[fifthAtributte] = true;
-      console.log(newData, newData[fifthAtributte]);
+   
       if (!isFinalVideo) {
         const completed = await CompleteOtherVideos(
           ActualProgress,
