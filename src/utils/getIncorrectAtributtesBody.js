@@ -14,7 +14,7 @@ module.exports = (correctAtributtes, req, maxLengthinObject,optionalAtributtes=[
         MissingProperties.length > 1 ? "are necessary" : "is necessary"
       } `
     );
-  if (bodyAtributtes.length > 10)
+  if (bodyAtributtes.length > maxLengthinObject??10)
     throw new Error("Invalid resquest"); //por si alguien con malas intenciones envia muchos atributtos en un objeto
 
   const incorrectAtributtes = bodyAtributtes.filter(
