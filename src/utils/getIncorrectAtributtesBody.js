@@ -5,7 +5,7 @@ module.exports = (correctAtributtes, req, maxLengthinObject,optionalAtributtes=[
   const { body } = req;console.log(optionalAtributtes);
   const bodyAtributtes = getObjectAtributtes(body); ///array con nombre de los atributos del body
   const MissingProperties = correctAtributtes.filter(// nos quedamos con los atributos que deberian venir pero no vienen.
-    (item, index) => !body[item]
+    (item, index) => body[item]===undefined
   );
 
   if (MissingProperties.length)
@@ -21,7 +21,7 @@ module.exports = (correctAtributtes, req, maxLengthinObject,optionalAtributtes=[
     //filtramos los atributos que no corresponden
     (item) => !correctAtributtes.includes(item)&&!optionalAtributtes.includes(item)
   );
- console.log(incorrectAtributtes);
+
   if (incorrectAtributtes.length) {
     //generamos mensajes personalizados claros para devs del front
     throw new Error(
