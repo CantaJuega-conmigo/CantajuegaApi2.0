@@ -2,10 +2,11 @@ const { ProgressAtributtes } = require("../Constants/ProgressConstants");
 const {
   validateProgressAtributtes,
   validateProgressVideosAtributtes,
+  ErrorResponse,
 } = require("../utils");
 
 module.exports = (req, res, next) => {
-  const { select } = req.query;
+  const { select } = req.query;//select representa al progreso a editar
   const atributtes = ProgressAtributtes();
 
   if (!select) {
@@ -18,16 +19,17 @@ module.exports = (req, res, next) => {
       return next();
     } catch (error) {
       console.log("error");
-      return res.status(406).send(error.message);
+      return ErrorResponse(res,406,error);
     }
   } else {
     try {
+      ///validamos que la propiedad del progreso a editar sea correcta
       if (!atributtes.includes(select))
         throw new Error(`Query ${select} no valida`);
-      validateProgressVideosAtributtes(req.body, select);
+      validateProgressVideosAtributtes(req, select);
       return next();
     } catch (error) {
-      return res.status(406).send(error.message);
+      return ErrorResponse(res,406,error);
     }
   }
 };

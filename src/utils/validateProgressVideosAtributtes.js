@@ -1,13 +1,13 @@
 const validateVideosProgress = require("./validateProgressAtributtes");
 
-module.exports = (newData, select) => {
+module.exports = (req, select) => {
   ///para usar en middlewares, validamos antes de que lleguen a los controllers
-  const First_Video = ["PdfCompleted", "Total", "Ready_to_Next_Video"];
-  const Other_Videos = ["Last_Video_Completed", "Total", "Ready_to_Next_Video"];
-  const Final_Video = ["Last_Video_Completed", "Total", "Ready_to_Test"];
- 
+  const First_Video = ["PdfCompleted", "Total", "Ready_to_Next_Video","day_Started","one_Day_Passed"];
+  const Other_Videos = ["Last_Video_Completed", "Total", "Ready_to_Next_Video","day_Started","one_Day_Passed"];
+  const Final_Video = ["Last_Video_Completed", "Total", "Ready_to_Test","day_Started","one_Day_Passed"];
+ const newData=req.body
   if (select === "First_Video") {
-    validateVideosProgress(newData, First_Video,'videosAtributtes',select); //devuelve true o false
+    validateVideosProgress(req, First_Video,'videosAtributtes',select); //devuelve true o false
     if(!newData.PdfCompleted){//solo permitiremos la edicion , si el dato necesario ya fue visto
       throw new Error('No es posible modificar el atributo PdfCompleted')
     }
