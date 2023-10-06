@@ -5,7 +5,7 @@ module.exports=async (updatedProgress, ProgressModel, id) => {
       if (isPdfCompleted) {
         const nextProgress = updatedProgress.dataValues.First_Video;
         nextProgress.PdfCompleted = true;
-        nextProgress.day_Started = !nextProgress.day_Started?new Date():nextProgress.day_Started;
+        // nextProgress.day_Started = !nextProgress.day_Started?new Date():nextProgress.day_Started;
         const newProgress = {
           ///y si todo va bien hacemos cambios
           ...updatedProgress,
