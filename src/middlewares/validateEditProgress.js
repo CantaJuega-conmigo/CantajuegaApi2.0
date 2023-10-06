@@ -12,13 +12,13 @@ module.exports = (req, res, next) => {
   if (!select) {
     try {
       const validate = validateProgressAtributtes(
-        req.body,
+        req,
         atributtes,
         "ProgressModelAtribute"
       );
       return next();
     } catch (error) {
-      console.log("error");
+      console.log("error aqiui");
       return ErrorResponse(res,406,error);
     }
   } else {

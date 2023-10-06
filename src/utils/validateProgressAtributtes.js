@@ -6,7 +6,7 @@ module.exports = (req, Atributtes, type, select) => {
   const bodyAtributtes = getObjectAtributtes(body); //convertimos el objeto (que es la info a cambiar); en array , [[key,value],[key,value]]
   if (bodyAtributtes[0] === "Pdf_Viewed" && !body[bodyAtributtes[0]]) {
     throw new Error(
-      `El valor que se quiere asignar en ${bodyAtributtes[0]} no es valido`
+      `The value in ${bodyAtributtes[0]} is not valide.`
     );
   }
   if (type === "videosAtributtes") {
@@ -15,7 +15,7 @@ module.exports = (req, Atributtes, type, select) => {
   }
 
   if (!Atributtes.includes(bodyAtributtes[0])) {
-    throw new Error(`${bodyAtributtes[0]} no es un atributo correcto.`);
+    throw new Error(`${bodyAtributtes[0]} is an incorrect atributte.`);
   }
   return true;
 };

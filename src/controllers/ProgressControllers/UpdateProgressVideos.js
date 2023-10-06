@@ -12,10 +12,6 @@ module.exports = async (id, newData, select) => {
     const ActualProgress = await Progress.findByPk(id);
     const isChildExists = await getUsers(ActualProgress.ChildId);
 
-    if (!isChildExists) {
-      //si no existe el child tiramos error
-      throw new Error('El niño no existe');
-    }
     if (select === 'First_Video') {
       AllowFirstVideo(ActualProgress.dataValues, newData);
       const allowNextVideo = await CompleteVideos(

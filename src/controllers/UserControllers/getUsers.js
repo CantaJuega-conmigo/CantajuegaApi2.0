@@ -2,6 +2,7 @@ const { User } = require('../../DB');
 
 module.exports = async (id) => {
   try {
+    console.log(id);
     const allUsers = !id
       ? await User.findAll({
           include: ['Children', 'Membership', 'Reports'],
@@ -15,9 +16,13 @@ module.exports = async (id) => {
             exclude: ['password'],
           },
         });
-    if (!allUsers) {
-      throw new Error('Usuario no encontrado. La solicitud falló.');
-    }
+        
+    // if (id&&!allUsers) {
+    //   throw new Error('Sin usuario. La solicitud falló.');
+    // }
+    // if (!id&&!allUsers.length) {
+    //   throw new Error('Sin usuarios. La solicitud falló.');
+    // }
     return allUsers;
   } catch (error) {
     throw new Error(`Error en el servidor 'getUsers': ${error.message}`);

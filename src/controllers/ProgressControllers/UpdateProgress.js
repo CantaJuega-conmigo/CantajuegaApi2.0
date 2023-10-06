@@ -6,17 +6,10 @@ module.exports = async (id, newData) => {
   try {
     const progress = await Progress.findByPk(id);
     if (!progress) {
-      throw new Error('Error en el servervidor.');
+      throw new Error("Progress doesn't exist.");
     }
-    const isChildExists = await getUsers(progress.ChildId);
-    if (!isChildExists) {
-      //si no existe el child tiramos error
-      throw new Error('No existe el niño');
-    }
-
-    const Atributte = getObjectAtributtes(newData)[0]; //actual atributo a modificar
-    // const Progressatributtes=getObjectAtributtes(progress.dataValues);//atributos del modelo en general
-    // const correctIndex=Progressatributtes.indexOf(Atributte)//indice del actual atributo en el array
+   
+    const Atributte = getObjectAtributtes(newData)[0]; 
 
     const UpdateResults = await Progress.update(newData, {
       where: {

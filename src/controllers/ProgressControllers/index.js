@@ -3,4 +3,5 @@ module.exports = {
   getProgress: require("./getProgress"),
   updateProgressVideos: require("./UpdateProgressVideos"),
   updateProgress: require("./UpdateProgress"),
+  updateDayPassed: require("./updateDayPassed"),
 };
