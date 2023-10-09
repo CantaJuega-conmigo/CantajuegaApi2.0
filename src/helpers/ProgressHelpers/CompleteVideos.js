@@ -29,7 +29,7 @@ module.exports = async (ActualProgress, newData, select, id, ProgressModel) => {
     }
     // newData.one_Day_Passed =newData.one_Day_Passed?true:timeControlled(newData.day_Started)//nos fijamos si el tiempo necesario para desbloquear el otro video ya paso
     ///solo cuando la vista del video  llega a 4
-    if (totalRecibed === 5) {
+    if (totalRecibed === 4) {
       // newData[fifthAtributte] = true;
       if (!isFinalVideo) {
         const completed = await CompleteOtherVideos(
@@ -50,6 +50,13 @@ module.exports = async (ActualProgress, newData, select, id, ProgressModel) => {
         );
         return completed;
       }
+    }
+
+    if(lastTotal>3&& !newData.day_Started){
+      throw new Error('Invalid request')
+    }
+    if(ActualProgress[select].day_Started!==newData.day_Started){
+      throw new Error('Is not possible change the original date.')
     }
     ///////Lo siguiente es para las actulizaciones normales osea se ejecutar siempre despues de las 4 vistas
     const newProgress = {
