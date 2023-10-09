@@ -9,7 +9,13 @@ module.exports = (req, Atributtes, type, select) => {
       `The value in ${bodyAtributtes[0]} is not valide.`
     );
   }
+ 
   if (type === "videosAtributtes") {
+
+     const {Total,one_Day_Passed,Ready_to_Next_Video}=body;
+     if(Total<4&&one_Day_Passed||Ready_to_Next_Video) {
+      throw new Error ('Invalid resquest')
+     }
      getIncorrectAtributtesBody(Atributtes,req,5)
     return;
   }
