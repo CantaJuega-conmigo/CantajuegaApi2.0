@@ -4,7 +4,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const session = require('express-session');
-require('./DB');
+require("dotenv").config();
+// require('./DB');
 const passport = require('./auth/google-auth');
 const rateLimit = require('express-rate-limit');
 
