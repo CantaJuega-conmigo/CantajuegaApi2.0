@@ -42,6 +42,9 @@ server.get('/prueba', async (req, res) => {
   try {
     await updateStatistic('membershipActive');
     res.status(200).send(await Statistic.findOne());
+    res.cookie('d','nhjn',{
+      signed:''
+    })
   } catch (error) {
     res.status(500).send(`Error en el servidor de prueba: ${error.message}`);
   }

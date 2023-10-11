@@ -10,8 +10,9 @@ module.exports = async (req, res) => {
     res.cookie('accesscookie', token, {
       maxAge: 24 * 60 * 60 * 1000,
       sameSite: 'none',
-      secure: false,
-      httpOnly: false
+      secure: true,
+      httpOnly: true,
+      domain: FRONT_DOMAIN,
     });
     // res.send(login);
     response(res, 200, { data: login });
