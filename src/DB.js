@@ -1,4 +1,3 @@
-// require("dotenv").config();
 // const { Sequelize } = require("sequelize");
 // const fs = require("fs");
 // const path = require("path");
@@ -75,7 +74,6 @@
 // Notification.belongsTo(Report); //una sola notificacion puede tener un solo reporte
 
 // // Stage.hasMany();
-// console.log('allllll');
 // module.exports = {
 //   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
 //   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
