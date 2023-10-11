@@ -31,7 +31,7 @@ server.use(passport.session());
 
 server.use(express.urlencoded({ extended: false }));
 server.use(morgan('dev'));
-server.use(express.json({ limit: '100kb' }));
+// server.use(express.json({ limit: '100kb' }));
 
 server.use('/api', limiter, require('./routes'));
 
