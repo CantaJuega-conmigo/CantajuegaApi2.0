@@ -2,7 +2,7 @@ const { response, ErrorResponse } = require('../../utils');
 
 module.exports = (req, res) => {
   try {
-    res.clearCookie('accesscookie');
+    res.cookie('accesscookie', '', { expires: new Date(0) });
     //  res.send({
     //    error:false,
     //    message:'Se ha deslogueado con exito'
