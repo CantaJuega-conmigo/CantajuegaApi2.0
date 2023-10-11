@@ -4,8 +4,8 @@ require("dotenv").config();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-// const session = require('express-session');
-// require('./DB');
+const session = require('express-session');
+require('./DB');
 const passport = require('./auth/google-auth');
 const rateLimit = require('express-rate-limit');
 
@@ -22,16 +22,16 @@ server.use(
   })
 );
 server.use(cookieParser());
-// server.use(
-//   session({ secret: 'secreto', resave: true, saveUninitialized: true })
-// );
+server.use(
+  session({ secret: 'secreto', resave: true, saveUninitialized: true })
+);
 
 server.use(passport.initialize());
-// server.use(passport.session());
+server.use(passport.session());
 
 server.use(express.urlencoded({ extended: false }));
 server.use(morgan('dev'));
-// server.use(express.json({ limit: '100kb' }));
+server.use(express.json({ limit: '100kb' }));
 
 server.use('/api', limiter, require('./routes'));
 
