@@ -16,7 +16,7 @@ const limiter = rateLimit({
 
 server.use(
   cors({
-    origin: ['http://localhost:3000', 'https://cantajuega2-0.vercel.app','https://www.joadev.com.ar/'],
+    origin: ['http://localhost:3000', 'https://cantajuega2-0.vercel.app','https://www.joadev.com.ar'],
     methods: ['OPTIONS', 'GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,
   })
