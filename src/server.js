@@ -24,7 +24,7 @@ server.use(
 );
 server.use(cookieParser());
 server.use(
-  session({ secret: 'secreto', resave: true, saveUninitialized: true })
+  session({ secret: 'secreto', resave: true, saveUninitialized: true ,cookie:{domain:'.joadev.com.ar'}})
 );
 
 server.use(passport.initialize());

@@ -26,11 +26,11 @@ module.exports = (req, res) => {
     })
     res.clearCookie('accescookie',{
       httpOnly:true,
-      sameSite:'lax',
+      sameSite:'none',
       secure:true,
       domain:'joadev.com.ar',
     })
-    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 6.' });
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 7.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,
