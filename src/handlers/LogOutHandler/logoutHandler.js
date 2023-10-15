@@ -12,25 +12,26 @@ module.exports = (req, res) => {
       sameSite:'none',
       secure:true
     })
-    res.clearCookie('accescookie',{
+    res.clearCookie('accesscookie',{
       httpOnly:true,
       sameSite:'strict',
       secure:true,
       domain: FRONT_DOMAIN,
     })
-    res.clearCookie('accescookie',{
+    res.clearCookie('accesscookie',{
       httpOnly:true,
       sameSite:'lax',
       secure:true,
       domain: FRONT_DOMAIN,
     })
     res.cookie('accesscookie','',{
+      expires:new Date(0),
       httpOnly:true,
       sameSite:'none',
       secure:true,
       domain:'joadev.com.ar',
     })
-    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 8.' });
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 10.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,
