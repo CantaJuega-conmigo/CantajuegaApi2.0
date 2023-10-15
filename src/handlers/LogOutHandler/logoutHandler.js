@@ -30,7 +30,7 @@ module.exports = (req, res) => {
       secure:true,
       domain: '',
     })
-    response(res, 200, { message: 'Se ha deslogueado con exito en produccion.' });
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 1.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,

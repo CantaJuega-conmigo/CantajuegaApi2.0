@@ -51,7 +51,7 @@ router.put(
   changeUserPasswordHandler
 );
 router.get("/auth", validateauth, authUserHandler);
-router.get("/logout", logoutHandler);
+router.get("/logout", validateauth,logoutHandler);
 router.get("/:id", getUsersHandler);
 router.get("/", getUsersHandler);
 router.put("/edit/:id", editUserValidators, validateUpdateUser,updateUserHandler);
