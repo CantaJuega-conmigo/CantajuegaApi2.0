@@ -30,7 +30,7 @@ module.exports = (req, res) => {
       secure:true,
       domain:'www.api.joadev.com.ar',
     })
-    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 4.' });
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 5.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,
