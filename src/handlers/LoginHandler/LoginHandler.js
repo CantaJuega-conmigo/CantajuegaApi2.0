@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
       sameSite: 'none',
       secure: true,
       httpOnly: true,
-      domain:'.joadev.com.ar',
+      domain:'.api.joadev.com.ar',
     });
     // res.send(login);
     response(res, 200, { data: login });
