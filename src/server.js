@@ -16,9 +16,10 @@ const limiter = rateLimit({
 
 server.use(
   cors({
-    origin: ['http://localhost:3000', 'https://cantajuega2-0.vercel.app','https://www.joadev.com.ar'],
+    origin: ['http://localhost:3000', 'https://cantajuega2-0.vercel.app','https://www.joadev.com.ar',''],
     methods: ['OPTIONS', 'GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,
+    
   })
 );
 server.use(cookieParser());
@@ -38,12 +39,12 @@ server.use('/api', limiter, require('./routes'));
 //-------------------------------------------------------------
 const { updateStatistic } = require('./controllers/StatisticsControllers');
 const { Statistic } = require('./DB');
-server.get('/prueba', async (req, res) => {
+server.get('/prueba2', async (req, res) => {
   try {
-    await updateStatistic('membershipActive');
-    res.status(200).send(await Statistic.findOne());
-    res.cookie('d','nhjn',{
-      signed:''
+    res.clearCookie('accescookie',{
+      httpOnly:true,
+      sameSite:'strict',
+      secure:true
     })
   } catch (error) {
     res.status(500).send(`Error en el servidor de prueba: ${error.message}`);

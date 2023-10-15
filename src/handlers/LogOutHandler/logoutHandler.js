@@ -1,12 +1,36 @@
 const { response, ErrorResponse } = require('../../utils');
+const { FRONT_DOMAIN } = process.env;
 
 module.exports = (req, res) => {
   try {
+
     res.cookie('accesscookie', '', {
       expires:new Date(0)
     });
-    console.log('me deslogueo de ',req.cookies.accesscookie);
-    response(res, 200, { message: 'Se ha deslogueado con exito' });
+    res.clearCookie('accesscookie',{
+      httpOnly:true,
+      sameSite:'none',
+      secure:true
+    })
+    res.clearCookie('accescookie',{
+      httpOnly:true,
+      sameSite:'strict',
+      secure:true,
+      domain: FRONT_DOMAIN,
+    })
+    res.clearCookie('accescookie',{
+      httpOnly:true,
+      sameSite:'lax',
+      secure:true,
+      domain: FRONT_DOMAIN,
+    })
+    res.clearCookie('accescookie',{
+      httpOnly:true,
+      sameSite:'lax',
+      secure:true,
+      domain: '',
+    })
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,
