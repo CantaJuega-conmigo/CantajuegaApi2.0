@@ -9,10 +9,10 @@ module.exports = async (req, res) => {
 
     res.cookie('accesscookie', token, {
       maxAge: 24 * 60 * 60 * 1000,
-      sameSite: 'none',
+      sameSite: 'lax',
       secure: true,
       httpOnly: true,
-      domain:'www.api.joadev.com.ar',
+      domain:'joadev.com.ar',
     });
     // res.send(login);
     response(res, 200, { data: login });
