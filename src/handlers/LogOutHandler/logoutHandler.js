@@ -24,13 +24,13 @@ module.exports = (req, res) => {
       secure:true,
       domain: FRONT_DOMAIN,
     })
-    res.clearCookie('accescookie',{
+    res.cookie('accesscookie','',{
       httpOnly:true,
       sameSite:'none',
       secure:true,
       domain:'joadev.com.ar',
     })
-    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 7.' });
+    response(res, 200, { message: 'Se ha deslogueado con exito en produccion 8.' });
   } catch (error) {
     //  res.status(401).send({
     //    error: true,
