@@ -1,20 +1,23 @@
-const { User } = require('../../DB');
-const { hashpassword, sendEmailLogin } = require('../../utils');
-const { createToken } = require('../../auth');
-const {generateOtpCode}=require('../../helpers/AuthHelpers')
-const { updateStatistic } = require('../../controllers/StatisticsControllers');
+const { User } = require("../../DB");
+const { hashpassword, sendEmailLogin } = require("../../utils");
+const { createToken } = require("../../auth");
+const { generateOtpCode } = require("../../helpers/AuthHelpers");
+const { updateStatistic } = require("../../controllers/StatisticsControllers");
+const { UniqueConstraintError } = require('sequelize');
 module.exports = async ({
   id,
   firstName,
   lastName,
   email,
   password,
-  MembershipId
+  MembershipId,
 }) => {
   try {
-    const is_Admin = ["joakig6@gmail.com","stallingkatt@gmail.com"].includes(email.toLowerCase());
-    const hashedPassword =password? await hashpassword(password):null;
-    const Otp_Code_Email=await generateOtpCode()
+    const is_Admin = ["joakig6@gmail.com", "stallingkatt@gmail.com"].includes(
+      email.toLowerCase()
+    );
+    const hashedPassword = password ? await hashpassword(password) : null;
+    const Otp_Code_Email = await generateOtpCode();
     const UserCreated = await User.create({
       id,
       firstName,
@@ -23,16 +26,19 @@ module.exports = async ({
       email: email.toLowerCase(),
       is_Admin,
       MembershipId,
-      Otp_Code_Email
+      Otp_Code_Email,
     });
-    await updateStatistic('addUser');
+    await updateStatistic("addUser");
     // const UserAuth=createToken(UserCreated,'1d')
+    // await sendEmailLogin(firstName, email);
     return {
-      user: UserCreated
-    }
+      user: UserCreated,
+    };
   } catch (error) {
-    throw new Error(`Error en el servidor 'createUser': ${error.message}`);
+    if (error instanceof UniqueConstraintError) {    
+      throw new Error("Este correo ya se encuentra en uso, por favor utilice otro.")
+    } else {
+      throw new Error(`Error en el servidor 'createUser': ${error.message}`);
+    }
   }
-
-  // await sendEmailLogin(firstName, email);
 };
