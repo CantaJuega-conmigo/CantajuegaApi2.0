@@ -9,7 +9,7 @@ const {
 const { validateAdmin } = require("../middlewares");
 router.get("/", getReportsHandler);
 router.post("/", createReportHandler);
-router.delete("/:id", validateAdmin,deleteReportHandler);
+router.delete("/:id",deleteReportHandler);
 router.get("/:id", getReportsHandler);
 router.put("/:id", editReportHandler);
 

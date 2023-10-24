@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const { GMAIL_ADMIN, PASSWORD_ADMIN } = process.env;
 
-module.exports = async function (name, email) {
+module.exports = async function (name, email,otpCode) {
     //creacion y configuracion del envio de mail
     let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -26,5 +26,14 @@ module.exports = async function (name, email) {
            <a href=''> Click aquí para regresar a CANTAJUEGA CONMIGO </a> - <br></br>
           `, // html body
     });
-    return informacion;
+    let verify = await transporter.sendMail({
+        from: `"CANTAJUEGA CONMIGO👾⚒️" <${GMAIL_ADMIN}>`, // sender address
+        to: email, // list of receivers
+        subject: "Codigo de verificacion", // Subject line
+        html: `Hola ${name}. Gracias por elegir a CANTAJUEGA CONMIGO 👏. <br>
+                <h1>Codigo de verificacion ${otpCode}</h1>
+          `, // html body
+    });
+
+    return otpCode?verify:informacion;
 };

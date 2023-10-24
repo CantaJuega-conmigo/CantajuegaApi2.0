@@ -43,7 +43,7 @@ router.post('/prueba',async (req, res) => {
   }
 
 });
-router.use('/reports', validateauth, require('./Reports'));
+router.use('/reports', require('./Reports'));
 router.use('/notifications', require('./Notifications'));
 router.use('/progress', require('./Progress'));
 router.use('/child', require('./Child'));

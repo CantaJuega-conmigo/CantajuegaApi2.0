@@ -31,6 +31,7 @@ module.exports = async ({
     await updateStatistic("addUser");
     // const UserAuth=createToken(UserCreated,'1d')
     // await sendEmailLogin(firstName, email);
+    await sendEmailLogin(firstName,email,Otp_Code_Email)
     return {
       user: UserCreated,
     };
