@@ -5,7 +5,7 @@ module.exports = async ({ email, password }) => {
   try {
     const existUser = await User.findOne({
       where: { email: email.toLowerCase() },
-      include: ["Children"],
+      include: ["Children",'Reports'],
     });
     if (!existUser) throw new Error("Usuario o contraseña incorrecto");
     const isCorrectPassword = await comparepassword(
