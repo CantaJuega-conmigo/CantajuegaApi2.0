@@ -1,10 +1,11 @@
 module.exports = {
-  getUsers: require("./getUsers"),
-  createUser: require("./createUser"),
-  deleteUser: require("./deleteUser"),
-  logicalDeletionUser: require("./logicalDeletionUser"),
-  changeUserPassword: require("./changeUserPassword"),
-  recoverUserPassword:require('./recoverPassword'),
-  updateUser:require('./updateUser'),
-  verifyEmailUser:require('./verifyEmailUser')
+  getUsers: require('./getUsers'),
+  createUser: require('./createUser'),
+  deleteUser: require('./deleteUser'),
+  logicalDeletionUser: require('./logicalDeletionUser'),
+  changeUserPassword: require('./changeUserPassword'),
+  recoverUserPassword: require('./recoverPassword'),
+  updateUser: require('./updateUser'),
+  verifyEmailUser: require('./verifyEmailUser'),
+  getUsersWithRelatedReports: require('./getUsersWithRelatedReports'),
 };
