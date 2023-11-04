@@ -29,9 +29,22 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      content:{
-        type:DataTypes.JSON(DataTypes.ARRAY(DataTypes.JSON)),
-        allowNull:true
+      content: {
+        type: DataTypes.JSONB(DataTypes.ARRAY),
+        validate: {
+          validatePropertys: function (value) {//validations to add info about videos and music content in db
+            const neccesary = ["pdf", "videos", "musics"];
+            if (typeof value !== "object")
+              throw new Error("The value of content, must be an object");
+            neccesary.forEach((i) => {
+              if (!value.hasOwnProperty(i))
+                throw new Error(`Missing atributte: ${i}`); 
+              if (i !== "pdf" && !Array.isArray(value[i]))
+                throw new Error(`${i} must be an array of object`);
+            });
+          },
+        },
+        allowNull: false,
       },
       deleted: {
         type: DataTypes.BOOLEAN,
