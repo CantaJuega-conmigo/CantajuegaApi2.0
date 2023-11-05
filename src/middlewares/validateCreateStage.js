@@ -14,6 +14,6 @@ module.exports = (req, res, next) => {
 
     next();
   } catch (error) {
-    ErrorResponse(res, 500, error, errors);
+    ErrorResponse(res, 400, error, errors);
   }
 };
