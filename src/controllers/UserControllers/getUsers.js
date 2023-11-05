@@ -1,22 +1,26 @@
-const { User } = require('../../DB');
+const { User, Child, Report, Membership } = require("../../DB");
 
 module.exports = async (id) => {
   try {
     console.log(id);
     const allUsers = !id
       ? await User.findAll({
-          include: ['Children', 'Membership', 'Reports'],
+          include: [
+            { model: Child, attributes: ["id","firstName", "lastName"] },
+            { model: Report },
+            { model: Membership },
+          ],
           attributes: {
-            exclude: ['password'],
+            exclude: ["password"],
           },
         })
       : await User.findByPk(id, {
-          include: ['Children', 'Membership', 'Reports'],
+          include: ["Children", "Membership", "Reports"],
           attributes: {
-            exclude: ['password'],
+            exclude: ["password"],
           },
         });
-        
+
     // if (id&&!allUsers) {
     //   throw new Error('Sin usuario. La solicitud falló.');
     // }
