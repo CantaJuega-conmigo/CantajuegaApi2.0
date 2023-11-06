@@ -3,9 +3,12 @@ const {
   getUsersWithRelatedReports,
 } = require('../../controllers/UserControllers');
 
-module.exports = async (_req, res) => {
+module.exports = async (req, res) => {
+  const { id } = req.query;
   try {
-    const data = await getUsersWithRelatedReports();
+    const data = id
+      ? await getUsersWithRelatedReports(id)
+      : await getUsersWithRelatedReports();
     response(res, 200, { data });
   } catch (error) {
     ErrorResponse(res, 404, error);
