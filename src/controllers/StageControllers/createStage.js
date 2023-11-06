@@ -1,5 +1,5 @@
-const { Stage } = require('../../DB');
-const { updateStatistic } = require('../../controllers/StatisticsControllers');
+const { Stage } = require("../../DB");
+const { updateStatistic } = require("../../controllers/StatisticsControllers");
 
 module.exports = async ({
   id,
@@ -20,7 +20,7 @@ module.exports = async ({
       UserId,
       content,
     });
-    await updateStatistic('addStage');
+    await updateStatistic("addStage");
     return create;
   } catch (error) {
     console.log(error);
