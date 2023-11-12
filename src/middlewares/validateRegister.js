@@ -13,12 +13,14 @@ module.exports = async (req, res, next) => {
       throw new Error();
     }
     ///validaciones adicionales por si falla la de express-validator
-    const { firstName, lastName, email, password } = req.body;
+    const { user,child} = req.body;
 
     const correctAtributtes = ["firstName", "lastName", "email", "password"];
-    const MissingAtributtes = correctAtributtes.filter((i) => !req.body[i]); //aqui se guardan el nombre de los atributos necesarios que no vienen
+    const correctChildAtributtes = ["firstName", "lastName"];
+    const MissingAtributtes = correctAtributtes.filter((i) => !user[i]); //aqui se guardan el nombre de los atributos necesarios que no vienen
+    const MissingChildAtributtes = correctChildAtributtes.filter((i) => !child[i]); //aqui se guardan el nombre de los atributos necesarios que no vienen
 
-    const bodyAtributtes = getObjectAtributtes(req.body);
+    const bodyAtributtes = getObjectAtributtes(user);
     const incorrectAtributtes = bodyAtributtes.filter(
       //aqui los atributos adicionales que vienen y no deberian venir
       (item, index) => !bodyAtributtes.includes(correctAtributtes[index])
@@ -32,10 +34,17 @@ module.exports = async (req, res, next) => {
         }`
       );
     }
-    if (!firstName || !lastName || !email || !password) {
+    if (!user.firstName || !user.lastName || !user.email || !user.password) {
       throw new Error(
         `${MissingAtributtes} ${
           MissingAtributtes.length > 1 ? "are" : "is"
+        } necessary.`
+      );
+    }
+    if (!child.firstName || !child.lastName ) {
+      throw new Error(
+        `${MissingChildAtributtes} ${
+          MissingChildAtributtes.length > 1 ? "are" : "is"
         } necessary.`
       );
     }

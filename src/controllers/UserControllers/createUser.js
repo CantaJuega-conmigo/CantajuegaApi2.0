@@ -32,9 +32,7 @@ module.exports = async ({
     // const UserAuth=createToken(UserCreated,'1d')
     // await sendEmailLogin(firstName, email);
     // await sendEmailLogin(firstName,email,Otp_Code_Email)
-    return {
-      user: UserCreated,
-    };
+    return UserCreated
   } catch (error) {
     if (error instanceof UniqueConstraintError) {    
       throw new Error("Este correo ya se encuentra en uso, por favor utilice otro.")
