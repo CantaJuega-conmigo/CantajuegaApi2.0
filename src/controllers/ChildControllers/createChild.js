@@ -11,7 +11,6 @@ module.exports = async ({
   StageId,
   ProgressId,
 }) => {
-  console.log(ProgressId);
   try {
     const create = await Child.create({
       id,

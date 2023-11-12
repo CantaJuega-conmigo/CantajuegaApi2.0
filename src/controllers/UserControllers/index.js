@@ -8,4 +8,5 @@ module.exports = {
   updateUser: require('./updateUser'),
   verifyEmailUser: require('./verifyEmailUser'),
   getUsersWithRelatedReports: require('./getUsersWithRelatedReports'),
+  registerUser:require('./registerUser')
 };
