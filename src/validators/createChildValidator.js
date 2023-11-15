@@ -3,7 +3,7 @@ module.exports = [
   ///firstName
   check("child.firstName")
     .notEmpty()
-    .withMessage("El campo de nombre no puede estar vacio.")
+    .withMessage("Ingrese el nombre de su hijo/a.")
     .isAlpha("es-ES")
     .withMessage("El nombre no puede tener numeros ni caracteres especiales.")
     .isLength({ min: 3 })
@@ -14,7 +14,7 @@ module.exports = [
   ///para lastName
   check("child.lastName")
     .notEmpty()
-    .withMessage("El campo de apellido no puede estar vacio.")
+    .withMessage("Ingrese el apellido de su hijo/a.")
     .isAlpha("es-ES")
     .withMessage("El apellido no puede tener numeros ni caracteres especiales.")
     .isLength({ min: 2 })
@@ -32,7 +32,7 @@ module.exports = [
     .custom((value) => {
       if (!value.match(/^\d{4}-\d{2}-\d{2}$/)) {
         throw new Error(
-          "La fecha de nacimiento debe ser una fecha válida en formato ISO (YYYY-MM-DD)"
+          "La fecha de nacimiento debe ser una fecha válida en el formato (YYYY-MM-DD)"
         );
       }
       return true;
