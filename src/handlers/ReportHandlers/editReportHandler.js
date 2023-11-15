@@ -11,16 +11,16 @@ module.exports = async (req, res) => {
     if (Response && Description) throw new Error('Resquest failed.');
     ////admin solo puede responder
 
-    const isAdmin = verifyIsAdmin(req);
+    // const isAdmin = verifyIsAdmin(req);
 
-    if (Response && isAdmin) {
+    // if (Response && isAdmin) {
       const reportEditStatus = await editReport({ Response }, id);
       // return res.status(200).send({
       //   error: false,
       //   message: 'La respuesta fue enviada con exito.',
       // });
       return send(res, 200, { message: 'La respuesta fué enviada con éxito' });
-    }
+    // }
     ///usuario puede editar el detalle de su reporte
     if (Description && !isAdmin) {
       const reportEditStatus = await editReport({ Description }, id);

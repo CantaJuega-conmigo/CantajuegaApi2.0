@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router } = require('express');
 const router = Router();
 ///handlers
 const {
@@ -11,9 +11,10 @@ const {
   recoverUserPasswordHandler,
   updateUserHandler,
   verifyEmailUserHandler,
-} = require("../handlers/UserHandlers");
+  getUsersWithRelatedReports,
+} = require('../handlers/UserHandlers');
 
-const { loginHandler } = require("../handlers/LoginHandler");
+const { loginHandler } = require('../handlers/LoginHandler');
 ///middlewares
 const {
   validateRegister,
@@ -21,8 +22,8 @@ const {
   validateauth,
   validateAdmin,
   validateChangePassword,
-  validateUpdateUser
-} = require("../middlewares");
+  validateUpdateUser,
+} = require('../middlewares');
 
 ///validators
 
@@ -32,39 +33,46 @@ const {
   changePasswordValidators,
   recoverPasswordValidators,
   editUserValidators,
-} = require("../validators");
-const { logoutHandler } = require("../handlers/LogOutHandler");
+  createChildValidator
+} = require('../validators');
+const { logoutHandler } = require('../handlers/LogOutHandler');
 
 ///routes
-router.get("/verify", verifyEmailUserHandler);
-router.get("/password", recoverUserPasswordHandler);
+router.get('/reports', getUsersWithRelatedReports);
+router.get('/verify', verifyEmailUserHandler);
+router.get('/password', recoverUserPasswordHandler);
 router.put(
-  "/password/recover",
+  '/password/recover',
   recoverPasswordValidators,
   validateChangePassword,
   changeUserPasswordHandler
 );
 router.put(
-  "/password",
+  '/password',
   changePasswordValidators,
   validateChangePassword,
   changeUserPasswordHandler
 );
-router.get("/auth", validateauth, authUserHandler);
-router.post("/logout", validateauth,logoutHandler);
-router.get("/:id", getUsersHandler);
-router.get("/", getUsersHandler);
-router.put("/edit/:id", editUserValidators, validateUpdateUser,updateUserHandler);
-router.post("/login", loginValidators, validateLogin, loginHandler);
+router.get('/auth', validateauth, authUserHandler);
+router.post('/logout', validateauth, logoutHandler);
+router.get('/:id', getUsersHandler);
+router.get('/', getUsersHandler);
+router.put(
+  '/edit/:id',
+  editUserValidators,
+  validateUpdateUser,
+  updateUserHandler
+);
+router.post('/login', loginValidators, validateLogin, loginHandler);
 router.post(
-  "/register",
-  registerValidators,
+  '/register',
+  [...registerValidators,...createChildValidator],
   validateRegister,
   registerUserHandler
 );
 
-router.delete("/:id", validateauth, validateAdmin, deleteUserHandler);
+router.delete('/:id', validateauth, validateAdmin, deleteUserHandler);
 
-router.patch("/:id", logicalDeletionUserHandler);
+router.patch('/:id', logicalDeletionUserHandler);
 
 module.exports = router;

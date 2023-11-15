@@ -4,7 +4,7 @@ const path = require("path");
 const { DB_USER,POSTGRES_USER, DB_PASSWORD,POSTGRES_PASSWORD, DB_HOST,POSTGRES_HOST ,DB_NAME,POSTGRES_DATABASE} = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER??POSTGRES_USER}:${DB_PASSWORD??POSTGRES_PASSWORD}@${DB_HOST??POSTGRES_HOST}/${DB_NAME??POSTGRES_DATABASE}?sslmode=require`,
+  `postgres://${DB_USER??POSTGRES_USER}:${DB_PASSWORD??POSTGRES_PASSWORD}@${DB_HOST??POSTGRES_HOST}/${DB_NAME??POSTGRES_DATABASE}`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -59,6 +59,8 @@ Payment.belongsTo(User);
 
 // User N a 1 Membership => se crea columna 'userID' en Membership
 Membership.hasMany(User);
+Membership.hasMany(Stage)
+Stage.hasMany(Membership)
 User.belongsTo(Membership);
 
 // Child N a 1 User

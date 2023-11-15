@@ -1,22 +1,11 @@
-const { createUser } = require('../../controllers/UserControllers');
-const { UniqueConstraintError } = require('sequelize');
-const { response, ErrorResponse } = require('../../utils');
+const { createUser, registerUser } = require("../../controllers/UserControllers");
+const { response, ErrorResponse } = require("../../utils");
 module.exports = async (req, res) => {
   try {
-    const info = await createUser(req.body);
-    // res.status(201).send(info);
-    response(res, 201, { data: info });
+    const {user,child} = req.body
+    const info = await registerUser(user,child);
+    return response(res, 201, { data: info });
   } catch (error) {
-    if (error instanceof UniqueConstraintError) {
-      // res
-      //   .status(406)
-      //   .send('Este correo ya se encuentra en uso, por favor utilice otro.');
-      ErrorResponse(res, 406, {
-        message: 'Este correo ya se encuentra en uso, por favor utilice otro.',
-      });
-    } else {
-      // res.status(500).send('ERROR SERVER.');
-      ErrorResponse(res, 500, error);
-    }
+    return ErrorResponse(res, 401, error);
   }
 };

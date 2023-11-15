@@ -1,9 +1,9 @@
 const { User } = require('../../DB');
 module.exports = async (id) => {
-  ///a diferencia del getUsers , aqui solo enviamos informacion del usuario, es un detalle pero se ahorra memoria y recursos.
   try {
+    console.log('aqyi ');
     const user = await User.findByPk(id, {
-      include: ['Children'],
+      include: ['Children','Reports'],
       attributes: {
         exclude: ['password'], // Excluye el atributo 'password' del resultado
       },
