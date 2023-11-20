@@ -30,9 +30,9 @@ module.exports = [
   body("child.birthDate")
     .optional()
     .custom((value) => {
-      if (!value.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      if (!value.match(/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/)) {
         throw new Error(
-          "La fecha de nacimiento debe ser una fecha válida en el formato (YYYY-MM-DD)"
+          "La fecha de nacimiento debe ser una fecha válida en el formato dd/mm/yyyy"
         );
       }
       return true;
