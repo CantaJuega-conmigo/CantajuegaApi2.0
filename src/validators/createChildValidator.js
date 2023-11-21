@@ -38,7 +38,7 @@ module.exports = [
       return true;
       //Esta función custom evalua que se pase una fecha en el formato correspondiente
     })
-    .escape(),
+    ,
   body("child.age")
     .optional()
     .isNumeric()

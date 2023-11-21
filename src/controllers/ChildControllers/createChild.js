@@ -13,14 +13,14 @@ module.exports = async ({
   ProgressId,
 }) => {
   try {
-    const fechaString = "01/06/1999";
-    const parsedDate = parse(fechaString, "dd/MM/yyyy", new Date());
+ 
+   console.log(birthDate);
     const create = await Child.create({
       id,
       firstName,
       lastName,
       gender,
-      birthDate: parsedDate,
+      birthDate,
       age,
       UserId,
       StageId,
