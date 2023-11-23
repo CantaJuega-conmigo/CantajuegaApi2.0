@@ -33,6 +33,7 @@ const {
   changePasswordValidators,
   recoverPasswordValidators,
   editUserValidators,
+  createChildValidator
 } = require('../validators');
 const { logoutHandler } = require('../handlers/LogOutHandler');
 
@@ -65,7 +66,7 @@ router.put(
 router.post('/login', loginValidators, validateLogin, loginHandler);
 router.post(
   '/register',
-  registerValidators,
+  [...registerValidators,...createChildValidator],
   validateRegister,
   registerUserHandler
 );

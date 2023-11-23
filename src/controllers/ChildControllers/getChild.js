@@ -3,7 +3,7 @@ const { Child, User, Stage, Progress } = require('../../DB');
 module.exports = async () => {
   try {
     const allChild = await Child.findAll({
-      include: [User, Stage, Progress],
+      include: [{model: User,attributes:['firstName']}, {model:Stage,attributes:['name']} ],
     });
     return allChild;
   } catch (error) {

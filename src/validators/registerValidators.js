@@ -1,7 +1,7 @@
 const { check } = require("express-validator");
 module.exports = [
   ///firstName
-  check("firstName")
+  check("user.firstName")
     .notEmpty()
     .withMessage("El campo de nombre no puede estar vacio.")
     .isAlpha("es-ES")
@@ -12,7 +12,7 @@ module.exports = [
     .withMessage("El nombre debe tener menos 20 letras")
     .escape(),
   ///para lastName
-  check("lastName")
+  check("user.lastName")
     .notEmpty()
     .withMessage("El campo de apellido no puede estar vacio.")
     .isAlpha("es-ES")
@@ -23,7 +23,7 @@ module.exports = [
     .withMessage("El apellido debe tener menos 20 letras")
     .escape(),
   ////email
-  check("email")
+  check("user.email")
     .notEmpty()
     .withMessage("El campo de email, no puede estar vacío.")
     .isEmail()
@@ -34,7 +34,7 @@ module.exports = [
     )
     .escape(),
   ///password
-  check("password")
+  check("user.password")
     .notEmpty()
     .withMessage("El campo de contraseña no puede estar vacío")
     .isLength({ min: 8 })
