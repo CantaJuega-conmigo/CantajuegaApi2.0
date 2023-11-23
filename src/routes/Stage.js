@@ -16,7 +16,7 @@ router.get("/", getStageHandler);
 router.get("/:id", getStageHandler);
 router.post("/", createStageValidator, validateCreateStage, createStageHandler);
 router.delete("/:id", deleteStageHandler);
-router.put("/stages/:id", putStageHandler);
+router.put("/:id", putStageHandler);
 router.patch("/:id", logicalDeletionStageHandler);
 
 module.exports = router;
