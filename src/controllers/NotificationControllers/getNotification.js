@@ -1,8 +1,8 @@
-const { Notification } = require('../../DB');
+const { Notification , Report,User} = require('../../DB');
 module.exports = async () => {
   try {
     const allNotifications = await Notification.findAll({
-      include: 'Report',
+      include: {model: Report, attributes: ['id','Description','UserId'], include: {model: User, attributes: ['firstName']}},
     });
     return allNotifications;
   } catch (error) {
