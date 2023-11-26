@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
 
     // Por si no funciona express-validator
 
-    const { firstName, lastName, gender, birthDate, age } = req.body;
+    const { firstName, lastName, gender, birthDate, age } = req.body.child;
     const onlyLetters = /^[a-zA-ZÁÉÍÓÚáéíóúÑñüÜ]+$/;
     const onlyNumbers = /^\d+$/;
     const date = /^\d{4}-\d{2}-\d{2}$/;
@@ -24,10 +24,10 @@ module.exports = async (req, res, next) => {
       );
     if (gender && gender !== 'male' && gender && gender !== 'female')
       throw new Error('El genero solo puede ser masculino o femenino');
-    if (birthDate && !date.test(birthDate))
-      throw new Error(
-        'La fecha de nacimiento debe ser una fecha válida en formato ISO (YYYY-MM-DD)'
-      );
+    // if (birthDate && !date.test(birthDate))
+    //   throw new Error(
+    //     'La fecha de nacimiento debe ser una fecha válida en formato ISO (YYYY-MM-DD)'
+    //   );
     if (age && !onlyNumbers.test(age))
       throw new Error('La edad debe ser entre 0 y 18 años');
     if ((age && age < 0) || (age && age > 18))

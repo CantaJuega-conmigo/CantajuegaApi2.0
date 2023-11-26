@@ -22,7 +22,12 @@ module.exports = async (req, res) => {
       const params = new URLSearchParams(url.search);
       const vquery = params.get("v");
       newContent.content = vquery;
-      const updated = await editContentStage(stageId, contentQuery, newContent, orderQuery);
+      const updated = await editContentStage(
+        stageId,
+        contentQuery,
+        newContent,
+        orderQuery
+      );
       return response(res, 200, { data: updated });
     }
     const updated = await putStage(stageId, newData);
