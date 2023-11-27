@@ -1,4 +1,4 @@
-const { Child } = require("../../DB");
+const { Child, Progress } = require("../../DB");
 const { updateStatistic } = require("../../controllers/StatisticsControllers");
 const { parse } = require("date-fns");
 module.exports = async ({
@@ -13,8 +13,7 @@ module.exports = async ({
   ProgressId,
 }) => {
   try {
- 
-   console.log(birthDate);
+    const newProgress = !ProgressId ? await Progress.create({}) : ProgressId;
     const create = await Child.create({
       id,
       firstName,
@@ -24,7 +23,7 @@ module.exports = async ({
       age,
       UserId,
       StageId,
-      ProgressId,
+      ProgressId: ProgressId ? ProgressId : newProgress.id,///because i use seed 
     });
     await updateStatistic("addChild");
     return create;

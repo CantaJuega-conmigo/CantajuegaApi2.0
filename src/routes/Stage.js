@@ -5,7 +5,7 @@ const {
   createStageHandler,
   deleteStageHandler,
   putStageHandler,
-  logicalDeletionStageHandler,
+  patchStageHandler,
 } = require("../handlers/StageHandlers");
 const { createStageValidator } = require("../validators");
 const { validateCreateStage } = require("../middlewares");
@@ -17,6 +17,6 @@ router.get("/:id", getStageHandler);
 router.post("/", createStageValidator, validateCreateStage, createStageHandler);
 router.delete("/:id", deleteStageHandler);
 router.put("/:id", putStageHandler);
-router.patch("/:id", logicalDeletionStageHandler);
+router.patch("/:id", patchStageHandler);
 
 module.exports = router;
