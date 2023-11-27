@@ -6,4 +6,5 @@ module.exports = {
   putStage: require("./putStage"),
   logicalDeletionStage: require("./logicalDeletionStage"),
   editContentStage: require("./editContentStage"),
+  addChildStage: require("./addChildStage"),
 };

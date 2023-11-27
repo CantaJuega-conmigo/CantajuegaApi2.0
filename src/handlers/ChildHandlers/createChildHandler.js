@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
       // gender,
       // birthDate,
       // age
-      req.body
+      req.body.child
     );
     response(res, 201, { data: child });
   } catch (error) {
