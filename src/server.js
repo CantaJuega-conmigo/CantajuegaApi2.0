@@ -37,19 +37,8 @@ server.use(express.json({ limit: '100kb' }));
 server.use('/api', limiter, require('./routes'));
 
 //-------------------------------------------------------------
-const { updateStatistic } = require('./controllers/StatisticsControllers');
-const { Statistic } = require('./DB');
-server.get('/prueba2', async (req, res) => {
-  try {
-    res.clearCookie('accescookie',{
-      httpOnly:true,
-      sameSite:'strict',
-      secure:true
-    })
-  } catch (error) {
-    res.status(500).send(`Error en el servidor de prueba: ${error.message}`);
-  }
-});
+
+
 
 //-------------------------------------------------------------
 

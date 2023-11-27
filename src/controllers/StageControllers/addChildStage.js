@@ -1,6 +1,7 @@
 const { Stage, Child } = require("../../../src/DB");
 module.exports = async ( childId, stageId) => {
   try {
+    console.log(childId, stageId);
     const child = await Child.findByPk(childId);
     if (!child) {
       throw new Error("No se encontro un niño con ese id");

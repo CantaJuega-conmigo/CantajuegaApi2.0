@@ -14,6 +14,7 @@ module.exports = async (req, res) => {
     }
     if (action === "addChild") {
       const { childId } = req.body;
+      console.log(childId,'de body');
       const status = await addChildStage(childId, id);
       return response(res, 200, { status });
     }
