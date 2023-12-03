@@ -23,7 +23,7 @@ router.use('/membership', require('./Membership'));
 router.use('/auth',require('./authgoogle'))
 router.use('/payments',require('./Payments'))
 router.use('/statistic', require('./Statistic'));
-
+router.use('/music', require('./Music'));
 // router.use("/", require("./publics"));
 
 router.post('/webhook',(req,res)=>{

@@ -49,6 +49,8 @@ const {
   Report,
   Notification,
   Progress,
+  Music,
+  MusicPlaylist,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -77,6 +79,8 @@ Report.belongsTo(User); //un reporte pertenece solo a un usuario
 Report.hasOne(Notification, { onDelete: "CASCADE" }); //un reporte puede generar solo una notificacion a la vez//CASCADE hara que al borrarse el reporte, se borre la notificacion a la que pertenece
 Notification.belongsTo(Report); //una sola notificacion puede tener un solo reporte
 
+MusicPlaylist.hasMany(Music);
+Music.belongsTo(MusicPlaylist);
 // Stage.hasMany();
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
