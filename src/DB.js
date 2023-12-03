@@ -59,8 +59,8 @@ Payment.belongsTo(User);
 
 // User N a 1 Membership => se crea columna 'userID' en Membership
 Membership.hasMany(User);
-Membership.hasMany(Stage)
-Stage.hasMany(Membership)
+Membership.hasOne(Stage); // Una Membership tiene un Stage
+Stage.belongsTo(Membership); // Un Stage pertenece a una Membership
 User.belongsTo(Membership);
 
 // Child N a 1 User

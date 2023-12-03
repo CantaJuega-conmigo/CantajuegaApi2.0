@@ -22,6 +22,7 @@ module.exports = async () => {
        fakeUsers[i].MembershipId=memberships[i].id
        await createUser(fakeUsers[i]);
        fakeChilds[i].UserId=fakeUsers[i].id
+       fakeStages[i].MembershipId=memberships[i].id
        await createStage(fakeStages[i])
        fakeChilds[i].StageId=fakeStages[i].id
        fakeChilds[i].ProgressId=newProgress.id

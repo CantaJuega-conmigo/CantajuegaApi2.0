@@ -9,6 +9,7 @@ module.exports = async ({
   maxAge,
   UserId,
   content,
+  MembershipId
 }) => {
   try {
     const create = await Stage.create({
@@ -19,6 +20,7 @@ module.exports = async ({
       maxAge,
       UserId,
       content,
+      MembershipId
     });
     await updateStatistic("addStage");
     return create;
