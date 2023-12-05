@@ -11,4 +11,5 @@ module.exports = {
   validateCreateChild: require('./validateCreateChild'),
   validateCreateMembership: require('./validateCreateMembership'),
   validateCreateStage: require('./validateCreateStage'),
+  validateUserMusicMembership: require('./validateUserMusicMembership'),
 };
