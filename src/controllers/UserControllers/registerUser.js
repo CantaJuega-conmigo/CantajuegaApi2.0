@@ -3,11 +3,13 @@ const { createToken } = require("../../auth");
 const { createChild } = require("../ChildControllers");
 const createUser = require("./createUser");
 module.exports = async (Userdata, ChildData) => {
+  let cacheUser;
   try {
     if (!Userdata || !ChildData) {
       throw new Error("Incomplete data");
     }
     const UserCreated = await createUser(Userdata);
+    cacheUser = UserCreated;
     if (!UserCreated || !UserCreated.id)
       throw new Error("Error when creating user");
     ChildData.UserId = UserCreated.id; //relation user-child
@@ -23,6 +25,9 @@ module.exports = async (Userdata, ChildData) => {
       user: UserCreated,
     };
   } catch (error) {
+    if (cacheUser) {
+      await User.destroy({ where: { id: cacheUser.id } });
+    }
     throw new Error(`Error en el servidor 'registerUser': ${error.message}`);
   }
 };
