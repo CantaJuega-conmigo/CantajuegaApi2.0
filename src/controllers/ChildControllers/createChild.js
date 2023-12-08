@@ -19,12 +19,11 @@ module.exports = async ({
     const newProgress = !ProgressId ? await Progress.create({}) : ProgressId;
     const splitDate = birthDate.split("/");
     const dateInFormatYYYYMMDD =
-      splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0];
-
+    splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0];
+    
     const age = getAge(dateInFormatYYYYMMDD);
-
+    
     const stage = await getCorrectStage(age);
-
     const create = await Child.create({
       id,
       firstName,

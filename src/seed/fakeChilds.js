@@ -9,7 +9,7 @@ module.exports = [
     firstName: "Juan",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'25/12/2017',
     gender: Gender.male,
   },
   {
@@ -17,7 +17,7 @@ module.exports = [
     firstName: "Maria",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/01/2018',
     gender: Gender.female,
   },
   {
@@ -25,7 +25,7 @@ module.exports = [
     firstName: "Rogelia",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/09/2019',
     gender: Gender.female,
   },
   {
@@ -33,7 +33,7 @@ module.exports = [
     firstName: "Pancrasia",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/02/2020',
     gender: Gender.female,
   },
   {
@@ -41,7 +41,7 @@ module.exports = [
     firstName: "Juan",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/09/2021',
     gender: Gender.male,
   },
   {
@@ -49,7 +49,7 @@ module.exports = [
     firstName: "Maria",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/06/2022',
     gender: Gender.female,
   },
   {
@@ -57,7 +57,7 @@ module.exports = [
     firstName: "Rogelia",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/06/2023',
     gender: Gender.female,
   },
   {
@@ -65,7 +65,7 @@ module.exports = [
     firstName: "Pancrasia",
     lastName: "Perez",
     age:5,
-    birthDate:'01/06/2010',
+    birthDate:'01/02/2023',
     gender: Gender.female,
   },
 ];

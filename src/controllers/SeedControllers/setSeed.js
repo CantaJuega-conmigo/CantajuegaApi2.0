@@ -13,8 +13,11 @@ module.exports = async () => {
      for (let i = 0; i < fakeMemberships.length; i++) {
        await createMembership(fakeMemberships[i])
      }
-     console.log(fakeUsers.length)
-    const memberships=[].concat(fakeMemberships).concat(fakeMemberships)
+     const memberships=[].concat(fakeMemberships).concat(fakeMemberships)
+     for(let i =0 ;i<fakeStages.length;i++){
+       fakeStages[i].MembershipId=memberships[i].id
+       await createStage(fakeStages[i])
+     }
      for (let i = 0; i < fakeUsers.length; i++) {
    
        const newProgress=await createProgress()
@@ -22,9 +25,9 @@ module.exports = async () => {
        fakeUsers[i].MembershipId=memberships[i].id
        await createUser(fakeUsers[i]);
        fakeChilds[i].UserId=fakeUsers[i].id
-       fakeStages[i].MembershipId=memberships[i].id
-       await createStage(fakeStages[i])
-       fakeChilds[i].StageId=fakeStages[i].id
+      //  fakeStages[i].MembershipId=memberships[i].id
+      //  await createStage(fakeStages[i])
+      //  fakeChilds[i].StageId=fakeStages[i].id
        fakeChilds[i].ProgressId=newProgress.id
        await createChild(fakeChilds[i]);
        await createReport({Description:report,UserId:fakeUsers[i].id})

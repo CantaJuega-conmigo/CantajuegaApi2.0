@@ -1,5 +1,5 @@
 module.exports={
     createMusic:require('./createMusic'),
-    createPlaylistMusic:require('./createPlaylistMusic'),
+    createPlaylistMusic:require('./createPlayListMusic'),
     getMusicController:require('./getMusicController'),
 }
