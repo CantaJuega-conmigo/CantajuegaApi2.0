@@ -1,3 +1,4 @@
 module.exports={
-    validationsToCreateStage:require('./validationsTocreateStage')
+    validationsToCreateStage:require('./validationsTocreateStage'),
+    getCorrectStage:require('./getCorrectStage'),
 }

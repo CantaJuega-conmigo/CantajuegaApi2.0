@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         type: DataTypes.JSONB(DataTypes.ARRAY),
         validate: {
           validatePropertys: function (value) {//validations to add info about videos and music content in db
-            const neccesary = ["pdf", "videos", "musics"];
+            const neccesary = ["pdf", "videos"];
             if (typeof value !== "object")
               throw new Error("The value of content, must be an object");
             neccesary.forEach((i) => {

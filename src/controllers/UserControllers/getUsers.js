@@ -6,16 +6,20 @@ module.exports = async (id) => {
     const allUsers = !id
       ? await User.findAll({
           include: [
-            { model: Child, attributes: ["id","firstName", "lastName"] },
+            { model: Child, attributes: ["id", "firstName", "lastName"] },
             { model: Report },
-            { model: Membership },
+            { model: Membership, attributes: ["id", "name"] },
           ],
           attributes: {
             exclude: ["password"],
           },
         })
       : await User.findByPk(id, {
-          include: ["Children", "Membership", "Reports"],
+          include: [
+            { model: Child, attributes: ["id", "firstName", "lastName"] },
+            { model: Report },
+            { model: Membership, attributes: ["id", "name"] },
+          ],
           attributes: {
             exclude: ["password"],
           },

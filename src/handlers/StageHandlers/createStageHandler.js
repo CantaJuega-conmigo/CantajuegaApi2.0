@@ -2,7 +2,7 @@ const { createStage } = require('../../controllers/StageControllers');
 const { response, ErrorResponse } = require('../../utils');
 
 module.exports = async (req, res) => {
-  const { name, description, minAge, maxAge } = req.body;
+  const { name, description, minAge, maxAge ,content,MembershipId} = req.body;
 
   try {
     // const stage = await createStage(name, description, minAge, maxAge);

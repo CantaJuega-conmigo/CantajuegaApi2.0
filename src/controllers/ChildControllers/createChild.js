@@ -1,6 +1,9 @@
-const { Child, Progress } = require("../../DB");
+const { Child, Progress, Stage } = require("../../DB");
 const { updateStatistic } = require("../../controllers/StatisticsControllers");
 const { parse } = require("date-fns");
+const { getAge } = require("../../utils");
+const { Op } = require("sequelize");
+const { getCorrectStage } = require("../../helpers/Stagehelpers");
 module.exports = async ({
   id,
   firstName,
@@ -14,16 +17,24 @@ module.exports = async ({
 }) => {
   try {
     const newProgress = !ProgressId ? await Progress.create({}) : ProgressId;
+    const splitDate = birthDate.split("/");
+    const dateInFormatYYYYMMDD =
+      splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0];
+
+    const age = getAge(dateInFormatYYYYMMDD);
+
+    const stage = await getCorrectStage(age);
+
     const create = await Child.create({
       id,
       firstName,
       lastName,
       gender,
-      birthDate,
+      birthDate: dateInFormatYYYYMMDD,
       age,
       UserId,
-      StageId,
-      ProgressId: ProgressId ? ProgressId : newProgress.id,///because i use seed 
+      StageId: StageId ? StageId : stage.id,///because i use seed
+      ProgressId: ProgressId ? ProgressId : newProgress.id, ///because i use seed
     });
     await updateStatistic("addChild");
     return create;

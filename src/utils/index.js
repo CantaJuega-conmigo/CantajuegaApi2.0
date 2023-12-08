@@ -7,5 +7,6 @@ module.exports = {
   getObjectAtributtes:require('./getObjectAtributtes'),
   ErrorResponse:require('./ErrorResponse'),
   response:require('./response'),
-  getIncorrectAtributtesBody:require('./getIncorrectAtributtesBody')
+  getIncorrectAtributtesBody:require('./getIncorrectAtributtesBody'),
+  getAge:require('./getAge'),
 };

@@ -15,9 +15,8 @@ module.exports =  (req) => {
     if(!isNumber.test(minAge)||!isNumber.test(maxAge)) throw new Error('minAge and Maxage must be  numbers.')
     if(content){
         if(typeof content !== 'object' ) throw new Error ('content must be an object.')
-        if(typeof content.pdf !== 'object' ) throw new Error ('pdf must be an object.')
-        if(typeof content.videos !== 'object' ) throw new Error ('pdf must be an object.')
-        // if(typeof content.musics !== 'object' ) throw new Error ('pdf must be an object.')
+        if(typeof content?.pdf !== 'object' ) throw new Error ('pdf must be an object.')
+        if(typeof content.videos !== 'object' ) throw new Error ('videos must be an object.')
         if(!content.pdf) throw new Error ('Content must have a pdf.')
         if(!content.pdf?.name) throw new Error('Pdf must have a name.')
         if(content.pdf?.name.length >20) throw new Error('Invalid pdf name, pdf is very long.')
