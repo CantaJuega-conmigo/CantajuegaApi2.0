@@ -8,9 +8,9 @@ module.exports = (req, select) => {
  const newData=req.body
   if (select === "First_Video") {
     validateVideosProgress(req, First_Video,'videosAtributtes',select); //devuelve true o false
-    if(!newData.PdfCompleted){//solo permitiremos la edicion , si el dato necesario ya fue visto
-      throw new Error('No es posible modificar el atributo PdfCompleted')
-    }
+    // if(!newData.PdfCompleted){//solo permitiremos la edicion , si el dato necesario ya fue visto
+    //   throw new Error('No es posible modificar el atributo PdfCompleted')
+    // }
     return true;
   }
   if (select === "Final_Video") {
