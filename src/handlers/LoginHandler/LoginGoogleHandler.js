@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         sameSite: "none",
         secure: true,
-        httpOnly: true,
+        httpOnly: false,
         domain: FRONT_DOMAIN,
       });
       return res.redirect(`${FRONT_URL}/register/child`); //redirect if the user hasn't children
