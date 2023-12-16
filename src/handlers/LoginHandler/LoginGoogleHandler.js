@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     if (!user?.Children?.length) {
       const idEncoded = Buffer.from(user.id).toString("base64");
       const json = JSON.stringify({ user: user.firstName, id: idEncoded });
-      res.cookie("accesscookie", json, {
+      res.cookie("register", json, {
         maxAge: 24 * 60 * 60 * 1000,
         sameSite: "none",
         secure: true,
