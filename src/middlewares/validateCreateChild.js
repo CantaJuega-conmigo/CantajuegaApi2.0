@@ -24,16 +24,14 @@ module.exports = async (req, res, next) => {
       );
     if (gender && gender !== 'male' && gender && gender !== 'female')
       throw new Error('El genero solo puede ser masculino o femenino');
-    // if (birthDate && !date.test(birthDate))
-    //   throw new Error(
-    //     'La fecha de nacimiento debe ser una fecha válida en formato ISO (YYYY-MM-DD)'
-    //   );
+
     if (age && !onlyNumbers.test(age))
       throw new Error('La edad debe ser entre 0 y 18 años');
     if ((age && age < 0) || (age && age > 18))
       throw new Error('La edad debe ser entre 0 y 18 años');
     next();
   } catch (error) {
+    console.log(error)
     ErrorResponse(res, 500, error, errors);
   }
 };
