@@ -15,7 +15,11 @@ module.exports = async (req, res) => {
       const idEncoded = Buffer.from(user.id).toString("base64");
       const json = JSON.stringify({ user: user.firstName, id: idEncoded });
       res.cookie("register", json, {
-        maxAge: 24 * 60 * 60 * 100,
+        maxAge: 24 * 60 * 60 * 1000,
+        sameSite: "none",
+        secure: true,
+        httpOnly: false,
+        domain: FRONT_DOMAIN,
       });
       return res.redirect(`${FRONT_URL}/register/child`); //redirect if the user hasn't children
     } else if (user?.Children?.length) {
