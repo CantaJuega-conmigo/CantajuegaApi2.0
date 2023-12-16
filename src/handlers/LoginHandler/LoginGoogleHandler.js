@@ -12,7 +12,12 @@ module.exports = async (req, res) => {
     const user = userExist ? userExist : await createUser(req.user);
     const token = createToken(user, "1d");
     if (!user?.Children?.length) {
-      return res.redirect(`${FRONT_URL}/complete-register`); //redirect if the user hasn't children
+      const idEncoded = Buffer.from(user.id).toString("base64");
+      const json = JSON.stringify({ user: user.firstName, id: idEncoded });
+      res.cookie("register", json, {
+        maxAge: 24 * 60 * 60 * 100,
+      });
+      return res.redirect(`${FRONT_URL}/register/child`); //redirect if the user hasn't children
     } else if (user?.Children?.length) {
       //para cuando ya tiene hijos registrados
       res.cookie("accesscookie", token, {
