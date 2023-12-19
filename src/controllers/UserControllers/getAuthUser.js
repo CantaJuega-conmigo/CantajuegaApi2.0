@@ -1,19 +1,21 @@
-const { User } = require('../../DB');
+const { User } = require("../../DB");
+const updateAppSubscriptions = require("../PaymenControllers/updateAppSubscriptions");
 module.exports = async (id) => {
   try {
-    console.log('aqyi ');
     const user = await User.findByPk(id, {
-      include: ['Children','Reports'],
+      include: ["Children", "Reports", "Membership"],
       attributes: {
-        exclude: ['password'], // Excluye el atributo 'password' del resultado
+        exclude: ["password"], // Excluye el atributo 'password' del resultado
       },
     });
 
     if (!user) {
-      throw new Error('Usuario no encontrado, autenticación fallida');
+      throw new Error("Usuario no encontrado, autenticación fallida");
     }
+
+    await updateAppSubscriptions(user);
     return user;
   } catch (error) {
-    throw new Error(`Error en el servidor 'getAuthUser': ${error.message}`);
+    console.log(error);
   }
 };

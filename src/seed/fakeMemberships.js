@@ -13,7 +13,7 @@ module.exports= [
     },
     {
         id: uuidv4(),
-        name: 'Semestral',
+        name: 'trimestral',
         description: 'Todas las herramientas terapéuticas para niñas y niños de 0 a 6 años.',
         price: 199.99,
         duration: 6,
