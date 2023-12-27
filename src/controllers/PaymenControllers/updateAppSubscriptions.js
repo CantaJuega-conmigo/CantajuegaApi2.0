@@ -10,7 +10,7 @@ module.exports = async (user) => {
       const correctSubscription = subscriptions.find(
         (i) => i.subscriber.email === user.email //if user exist is because it is recurrente subcriptor
       );
-      if (!correctSubscription) throw new Error("Subscription not found");
+      if (!correctSubscription) return;
       await User.update(
         ///update with recurrente info, because it is the first time and the next time will not necessary search in recurrente array
         //update recurrenteId
@@ -24,7 +24,7 @@ module.exports = async (user) => {
     }
 
     const subscription = await getSubscriptions(user.recurrenteId); //if user has a subscription is more easy to get recurrente info
-    if (!subscription) throw new Error("Subscription not found");
+    if (!subscription) return;
     await User.update(
       //so we need  update status to allow content, this info come from recurrente
       { MembershipStatus: subscription.status }, //***update membership status to allow content */
