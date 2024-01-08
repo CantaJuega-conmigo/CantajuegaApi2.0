@@ -17,6 +17,8 @@ module.exports = async (user) => {
         {
           recurrenteId: correctSubscription.id,
           MembershipStatus: correctSubscription.status,
+          MembershipStartDate: correctSubscription.current_period_start,
+          MembershipEndDate: correctSubscription.current_period_end,
         },
         { where: { id: user.id } }
       );
@@ -30,7 +32,7 @@ module.exports = async (user) => {
       { MembershipStatus: subscription.status }, //***update membership status to allow content */
       { where: { id: user.id } }
     );
-    await asignCorrectMembership(user, subscription); // to do , we need to test this
+    await asignCorrectMembership(user, subscription); 
     return subscription;
   } catch (error) {
     throw new Error(

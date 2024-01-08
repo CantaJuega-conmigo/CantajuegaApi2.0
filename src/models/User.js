@@ -76,6 +76,14 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: "inactive",
     },
+    MembershipStartDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    MembershipEndDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
     recurrenteId: {
       type: DataTypes.STRING,
       allowNull: true,
