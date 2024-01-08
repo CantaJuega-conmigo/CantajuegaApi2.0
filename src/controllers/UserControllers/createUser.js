@@ -3,7 +3,7 @@ const { hashpassword, sendEmailLogin } = require("../../utils");
 const { createToken } = require("../../auth");
 const { generateOtpCode } = require("../../helpers/AuthHelpers");
 const { updateStatistic } = require("../../controllers/StatisticsControllers");
-const { UniqueConstraintError } = require('sequelize');
+const { UniqueConstraintError } = require("sequelize");
 module.exports = async ({
   id,
   firstName,
@@ -29,13 +29,13 @@ module.exports = async ({
       Otp_Code_Email,
     });
     await updateStatistic("addUser");
-    // const UserAuth=createToken(UserCreated,'1d')
-    // await sendEmailLogin(firstName, email);
-    // await sendEmailLogin(firstName,email,Otp_Code_Email)
-    return UserCreated
+    await sendEmailLogin(firstName, email, Otp_Code_Email);
+    return UserCreated;
   } catch (error) {
-    if (error instanceof UniqueConstraintError) {    
-      throw new Error("Este correo ya se encuentra en uso, por favor utilice otro.")
+    if (error instanceof UniqueConstraintError) {
+      throw new Error(
+        "Este correo ya se encuentra en uso, por favor utilice otro."
+      );
     } else {
       throw new Error(`Error en el servidor 'createUser': ${error.message}`);
     }
