@@ -4,6 +4,7 @@ const { updateStatistic } = require('../../controllers/StatisticsControllers');
 
 module.exports = async ({ UserId, Description }) => {
   try {
+   
     const UserResult = await User.findByPk(UserId);
     const ReportCreated = await Report.create({
       Description,
